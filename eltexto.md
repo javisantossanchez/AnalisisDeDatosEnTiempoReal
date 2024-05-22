@@ -88,6 +88,37 @@
 
 Cada herramienta tiene su fortaleza y es más adecuada para ciertos tipos de aplicaciones. La elección correcta depende de los requisitos específicos del proyecto, como la necesidad de procesamiento en tiempo real, el manejo de estado, la tolerancia a fallos y la escalabilidad.
 
+Claro, aquí tienes una introducción detallada a las Arquitecturas Lambda y Kappa, orientada a personas que ya tienen conocimientos en Big Data.
+
+### Arquitectura Lambda
+
+La **Arquitectura Lambda** es un marco de diseño para procesar grandes cantidades de datos utilizando tanto técnicas de procesamiento por lotes como de procesamiento en tiempo real. La arquitectura se divide en tres capas principales:
+
+1. **Capa de Procesamiento por Lotes (Batch Layer)**: Esta capa tiene el objetivo de manejar grandes volúmenes de datos acumulados, procesándolos en lotes. Utiliza sistemas como Hadoop para almacenar y procesar estos lotes de manera eficiente. La capa de procesamiento por lotes proporciona una visión integral y histórica de los datos, lo que permite realizar análisis complejos y almacenar resultados que son inmutables y precisos.
+
+2. **Capa de Procesamiento en Tiempo Real (Speed Layer)**: En contraste con la capa por lotes, la capa de velocidad procesa los datos en tiempo real, utilizando tecnologías como Apache Storm, Apache Samza, o Apache Flink. Su objetivo principal es proporcionar actualizaciones rápidas y aproximaciones a los datos más recientes, permitiendo que los sistemas respondan en tiempo casi real.
+
+3. **Capa de Servicio (Serving Layer)**: Esta capa sirve para indexar y exponer los datos procesados desde las dos capas anteriores, de modo que estén disponibles para consultas y análisis rápidos. La capa de servicio asegura que los resultados de las capas de procesamiento por lotes y en tiempo real se combinen de manera efectiva y se presenten de manera coherente.
+
+La principal ventaja de la Arquitectura Lambda es su capacidad para manejar eficazmente los requisitos de latencia y rendimiento en aplicaciones de Big Data. Sin embargo, su principal desventaja radica en la complejidad operativa y de mantenimiento, ya que requiere la gestión de dos sistemas de procesamiento de datos paralelos.
+
+### Arquitectura Kappa
+
+La **Arquitectura Kappa** es una simplificación de la Arquitectura Lambda, donde se utiliza un único sistema de procesamiento de flujos (stream processing) para manejar tanto el procesamiento en tiempo real como el procesamiento por lotes. La idea detrás de la Arquitectura Kappa es tratar todos los datos como un flujo continuo, utilizando tecnologías como Apache Kafka o Apache Flink, que son capaces de manejar tanto procesamientos de bajo como de alto nivel.
+
+La Arquitectura Kappa tiene solo dos componentes principales:
+
+1. **Capa de Procesamiento de Flujo (Stream Processing Layer)**: Esta capa procesa los flujos de datos en tiempo real y también puede reprocesar datos históricos cuando es necesario, actuando como un sistema híbrido que elimina la necesidad de una capa de procesamiento por lotes separada.
+
+2. **Capa de Servicio (Serving Layer)**: Similar a la Arquitectura Lambda, esta capa sirve los datos procesados para su consumo rápido y eficiente, permitiendo accesos y consultas de bajo tiempo de respuesta.
+
+La principal ventaja de la Arquitectura Kappa es su diseño simplificado, que reduce la complejidad operativa y de mantenimiento al no requerir sincronización entre dos tipos de sistemas de procesamiento. Sin embargo, esta arquitectura pone más presión sobre la capa de procesamiento de flujos para que sea robusta y escalable.
+
+### Comparación
+
+En resumen, mientras que la **Arquitectura Lambda** es ideal para situaciones donde es crítica la precisión absoluta y se pueden tolerar ciertas latencias debido al procesamiento por lotes, la **Arquitectura Kappa** es preferible cuando la simplicidad operativa y la capacidad de respuesta en tiempo real son más importantes. Ambas arquitecturas son fundamentales en el diseño de sistemas modernos de Big Data y la elección entre una y otra dependerá de las necesidades específicas del negocio y del contexto de los datos.
+
+
 ### Casos de Uso de la Arquitectura Lambda
 
 **Caso de Uso 1: Análisis de Datos de Comercio Electrónico**
