@@ -5,8 +5,9 @@ https://app.daily.dev/posts/denormalizing-db-for-justin-bieber-database-sql-webd
 https://aprenderbigdata.com/stream-processing/
 https://aws.amazon.com/es/compare/the-difference-between-kafka-and-spark/
 https://www.confluent.io/es-es/learn/event-driven-architecture/#:~:text=Apache%20Kafka%2C%20a%20distributed%20event,%2C%20and%20pub%2Fsub%20messaging.
-
-Claro, aquí tienes una planificación detallada de una clase de 8 horas sobre "Gestión y visualización de grandes conjuntos de datos" con un enfoque en Apache Kafka. La estructura incluye introducción teórica, conceptos esenciales, explicación de Apache Kafka y una parte práctica.
+https://nexocode.com/blog/posts/kappa-architecture/
+https://ably.com/topic/pub-sub
+https://www.confluent.io/es-es/learn/batch-vs-real-time-data-processing/
 
 ### Clase de 8 Horas: Gestión y visualización de grandes conjuntos de datos con Apache Kafka
 
