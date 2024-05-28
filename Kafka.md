@@ -33,3 +33,30 @@ Los eventos se organizan y almacenan de manera duradera en temas. De manera muy 
 Los temas están particionados, lo que significa que un tema se distribuye en varios "cubos" ubicados en diferentes brokers de Kafka. Esta distribución de tus datos es muy importante para la escalabilidad porque permite que las aplicaciones cliente lean y escriban datos desde/hacia muchos brokers al mismo tiempo. Cuando se publica un nuevo evento en un tema, en realidad se agrega a una de las particiones del tema. Los eventos con la misma clave de evento (por ejemplo, un ID de cliente o de vehículo) se escriben en la misma partición, y Kafka garantiza que cualquier consumidor de una partición de tema dada siempre leerá los eventos de esa partición en exactamente el mismo orden en que fueron escritos.
 
 Para hacer que tus datos sean tolerantes a fallos y altamente disponibles, cada tema puede replicarse, incluso a través de regiones geográficas o centros de datos, de modo que siempre haya múltiples brokers que tengan una copia de los datos en caso de que algo salga mal, necesites hacer mantenimiento en los brokers, etc. Una configuración común en producción es un factor de replicación de 3, es decir, siempre habrá tres copias de tus datos. Esta replicación se realiza a nivel de particiones de tema.
+
+
+## Casos de Uso
+
+Aquí hay una descripción de algunos de los casos de uso más populares para Apache Kafka®. Para una visión general de varias de estas áreas en acción, consulta esta [publicación del blog](https://kafka.apache.org/uses).
+
+### Mensajería
+
+Kafka funciona bien como un reemplazo para un broker de mensajes más tradicional. Los brokers de mensajes se utilizan por diversas razones (para desacoplar el procesamiento de los productores de datos, para amortiguar los mensajes no procesados, etc.). En comparación con la mayoría de los sistemas de mensajería, Kafka tiene un mejor rendimiento, particionamiento incorporado, replicación y tolerancia a fallos, lo que lo convierte en una buena solución para aplicaciones de procesamiento de mensajes a gran escala. En nuestra experiencia, los usos de mensajería suelen tener un rendimiento relativamente bajo, pero pueden requerir baja latencia de extremo a extremo y a menudo dependen de las sólidas garantías de durabilidad que proporciona Kafka.
+
+En este dominio, Kafka es comparable a sistemas de mensajería tradicionales como ActiveMQ o RabbitMQ.
+
+### Seguimiento de Actividad en Sitios Web
+
+El caso de uso original para Kafka era poder reconstruir un pipeline de seguimiento de actividad de usuarios como un conjunto de feeds de publicación-suscripción en tiempo real. Esto significa que la actividad del sitio (vistas de página, búsquedas u otras acciones que los usuarios puedan realizar) se publica en temas centrales con un tema por tipo de actividad. Estos feeds están disponibles para suscripción para una variedad de casos de uso, incluyendo procesamiento en tiempo real, monitoreo en tiempo real y carga en Hadoop o sistemas de almacenamiento de datos offline para procesamiento y generación de informes offline. El seguimiento de actividad suele tener un volumen muy alto, ya que se generan muchos mensajes de actividad por cada vista de página del usuario.
+
+### Métricas
+
+Kafka se utiliza a menudo para datos de monitoreo operativo. Esto implica la agregación de estadísticas de aplicaciones distribuidas para producir feeds centralizados de datos operativos.
+
+### Agregación de Logs
+
+Muchas personas utilizan Kafka como un reemplazo para una solución de agregación de logs. La agregación de logs normalmente recopila archivos de log físicos de los servidores y los coloca en un lugar central (un servidor de archivos o HDFS quizás) para su procesamiento. Kafka abstrae los detalles de los archivos y ofrece una abstracción más limpia de datos de logs o eventos como un flujo de mensajes. Esto permite un procesamiento de menor latencia y un soporte más fácil para múltiples fuentes de datos y consumo de datos distribuidos. En comparación con sistemas centrados en logs como Scribe o Flume, Kafka ofrece un rendimiento igualmente bueno, garantías de durabilidad más fuertes debido a la replicación y una latencia de extremo a extremo mucho menor.
+
+### Procesamiento de Flujos
+
+Muchos usuarios de Kafka procesan datos en pipelines de procesamiento que consisten en múltiples etapas, donde los datos de entrada en bruto se consumen de los temas de Kafka y luego se agregan, enriquecen o transforman de alguna otra manera en nuevos temas para su posterior consumo o procesamiento posterior. Por ejemplo, un pipeline de procesamiento para recomendar artículos de noticias podría rastrear el contenido de artículos de feeds RSS y publicarlo en un tema de "artículos"; un procesamiento adicional podría normalizar o eliminar duplicados de este contenido y publicar el contenido de artículos depurado en un nuevo tema; una etapa final de procesamiento podría intentar recomendar este contenido a los usuarios. Tales pipelines de procesamiento crean gráficos de flujos de datos en tiempo real basados en los temas individuales. A partir de la versión 0.10.0.0, una biblioteca de procesamiento de flujos liviana pero poderosa llamada Kafka Streams está disponible en Apache Kafka para realizar dicho procesamiento de datos como se describe arriba. Aparte de Kafka Streams, otras herramientas de procesamiento de flujos de código abierto incluyen Apache Storm y Apache Samza.
