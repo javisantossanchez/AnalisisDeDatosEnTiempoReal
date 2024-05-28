@@ -14,7 +14,7 @@ La principal diferencia entre una máquina virtual y un contenedor es que una m�
 Éstas máquinas permiten ejecutar diferentes sistemas operativos gracias a la
 existencia de un hipervisor.
 
-*IMAGEN DE UN HIPERVISOR*
+![Hypervisor-types](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/5f795e11-0a98-4f83-b6e5-5d3b84b81635)
 
 
 Como una evolución de este concepto encontramos Docker: una plataforma
@@ -44,7 +44,9 @@ Los contenedores de Docker permiten el aislamiento de los miembros y la
 creación de una red propia dedicando poca memoria y utilizando el menor al-
 macenamiento posible gracias a la ligereza de las imágenes utilizadas, facilitando
 el aprovisionamiento de máquinas y la simulación de un entorno real.
-*Imagen de Docker-compose*
+
+![docker-compose](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/8d9ccd6b-37aa-4ae5-88bc-e065eef5dee7)
+
 
 *Ejemplo de simple Dockerfile para comentar rapidito
 *Ejemplo de un docker-compose para comentar rapidito
