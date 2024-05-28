@@ -1,3 +1,5 @@
 *.jgp*
 *.pdf*
 *.tgz*
+apache-kafka/scripts/java/kafka-producer/
+images/

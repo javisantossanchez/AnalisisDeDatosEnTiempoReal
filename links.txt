@@ -8,6 +8,57 @@ https://www.confluent.io/es-es/learn/event-driven-architecture/#:~:text=Apache%2
 https://nexocode.com/blog/posts/kappa-architecture/
 https://ably.com/topic/pub-sub
 https://www.confluent.io/es-es/learn/batch-vs-real-time-data-processing/
+https://www.techtarget.com/searchdatamanagement/definition/5-Vs-of-big-data
+
+
+
+"
+¡Me alegra saber que ahora funciona! Aquí te explico por qué el uso de NodePort ha solucionado el problema y cómo funciona en Kubernetes.
+
+¿Qué es NodePort?
+NodePort es una de las tres formas principales en que los servicios de Kubernetes pueden ser expuestos:
+
+ClusterIP (por defecto): Hace que el servicio sea accesible solo dentro del clúster de Kubernetes.
+NodePort: Exponer el servicio en un puerto estático de cada nodo del clúster, permitiendo el acceso externo.
+LoadBalancer: Solicita a un proveedor de servicios de nube que cree un balanceador de carga, permitiendo el acceso externo.
+Cómo Funciona NodePort
+Cuando configuras un servicio como NodePort, Kubernetes abre un puerto específico (en el rango 30000-32767) en todos los nodos del clúster y redirige el tráfico que llega a ese puerto al servicio. Aquí están los detalles de por qué esto funciona para acceder al servicio desde fuera del clúster:
+
+Acceso Externo: NodePort permite el acceso a servicios internos de Kubernetes desde fuera del clúster usando la IP del nodo y el puerto especificado. Esto es útil cuando deseas acceder a tus servicios desde tu máquina local u otros dispositivos en la red.
+
+Puerto Fijo: NodePort expone un puerto específico y fijo en cada nodo del clúster, lo que facilita saber a qué puerto dirigir el tráfico para acceder a un servicio determinado.
+
+Compatibilidad con Firewalls y Seguridad: Al exponer un puerto específico, puedes configurar reglas de firewall y políticas de seguridad para controlar el acceso a tus servicios.
+
+Ejemplo de Flujo de Tráfico con NodePort
+Supongamos que tienes un servicio Kafka UI expuesto en el puerto 32080 con NodePort:
+
+Solicitud Externa: Una solicitud HTTP llega a la IP de uno de los nodos del clúster en el puerto 32080.
+Redirección: Kubernetes redirige esta solicitud al servicio Kafka UI, que está escuchando en el puerto interno 8080.
+Respuesta: El servicio Kafka UI procesa la solicitud y envía una respuesta de vuelta al cliente a través del mismo nodo y puerto.
+Comparación con ClusterIP
+Con ClusterIP, el servicio es accesible solo desde dentro del clúster. Si intentaras acceder al servicio Kafka UI desde fuera del clúster (por ejemplo, desde tu máquina Windows), el tráfico no llegaría al servicio porque ClusterIP no expone el puerto fuera del clúster.
+
+Diagrama de Flujo
+Aquí tienes un diagrama simplificado del flujo de tráfico con NodePort:
+
+sql
+Copiar código
+Client (Windows)
+    |
+    V
+[External IP of Node]:32080  -->  [NodePort: 32080 on Node]
+                                  -->  [Service: kafka-ui on ClusterIP]
+                                    -->  [Pod: kafka-ui on port 8080]
+Resumen
+ClusterIP: Solo accesible dentro del clúster.
+NodePort: Abre un puerto específico en cada nodo, permitiendo el acceso externo.
+Ventajas de NodePort:
+Permite acceso externo desde cualquier dispositivo en la red.
+Usa un puerto fijo que facilita la configuración de acceso.
+Compatible con configuraciones de firewall y políticas de seguridad.
+"
+
 
 ### Clase de 8 Horas: Gestión y visualización de grandes conjuntos de datos con Apache Kafka
 
