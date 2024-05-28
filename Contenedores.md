@@ -11,8 +11,6 @@ En un sistema de máquina virtual, el sistema intenta dividir los recursos del s
 Para llevar el concepto de máquinas virtuales al siguiente nivel, surgió el concepto de contenedores.
 La principal diferencia entre una máquina virtual y un contenedor es que una máquina virtual tiene su propio núcleo, mientras que un contenedor comparte el núcleo de la máquina anfitriona.
 
-Traducción realizada con la versión gratuita del traductor DeepL.com
-
 Éstas máquinas permiten ejecutar diferentes sistemas operativos gracias a la
 existencia de un hipervisor.
 
