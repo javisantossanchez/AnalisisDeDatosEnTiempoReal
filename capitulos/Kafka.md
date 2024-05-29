@@ -66,9 +66,9 @@ Muchos usuarios de Kafka procesan datos en pipelines de procesamiento que consis
 
 
 ### Arquitectura Kafka
-
+<div style="text-align: center;">
 ![kafka-broker-architecture](https://github.com/javisantossanchez/BigDataEnTiempoReal/assets/47392657/014508da-e8a5-4365-b38a-d9a1123d40cb)
-
+</div>
 
 La capa de mensajería de Kafka particiona los datos para almacenarlos y transportarlos. Kafka Streams particiona los datos para procesarlos. En ambos casos, esta partición es lo que permite la localización de datos, elasticidad, escalabilidad, alto rendimiento y tolerancia a fallos. Kafka Streams utiliza los conceptos de particiones y tareas como unidades lógicas de su modelo de paralelismo basado en particiones de topics de Kafka. Existen vínculos estrechos entre Kafka Streams y Kafka en el contexto del paralelismo:
 
@@ -83,7 +83,7 @@ De manera ligeramente simplificada, el paralelismo máximo al que tu aplicación
 Es importante entender que Kafka Streams no es un gestor de recursos, sino una biblioteca que "se ejecuta" en cualquier lugar donde se ejecute su aplicación de procesamiento de flujos. Múltiples instancias de la aplicación se ejecutan ya sea en la misma máquina o distribuidas en múltiples máquinas y las tareas pueden distribuirse automáticamente por la biblioteca a esas instancias de la aplicación en ejecución. La asignación de particiones a tareas nunca cambia; si una instancia de la aplicación falla, todas sus tareas asignadas se reiniciarán automáticamente en otras instancias y continuarán consumiendo de las mismas particiones de flujo.
 
 
-
+### Kafka Connect
 
 ### Kafka Streams
 ![kafka-architecture](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/e7e03b7f-1a0b-4a52-affe-2273d0ea19e9)
