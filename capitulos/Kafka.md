@@ -37,6 +37,7 @@ Los topics están particionados, lo que significa que un tema se distribuye en v
 
 Para hacer que tus datos sean tolerantes a fallos y altamente disponibles, cada tema puede replicarse, incluso a través de regiones geográficas o centros de datos, de modo que siempre haya múltiples brokers que tengan una copia de los datos en caso de que algo salga mal, necesites hacer mantenimiento en los brokers, etc. Una configuración común en producción es un factor de replicación de 3, es decir, siempre habrá tres copias de tus datos. Esta replicación se realiza a nivel de particiones de tema.
 
+A continuación se presenta una arquitectura Lambda basada en Kafka para la ingestión de datos en al capa de velocidad implementada con Flink mientras soporta streaming de datos e integrando la capa histórica con Spark.
 ![KappaArchitectureWithKafka](https://github.com/javisantossanchez/BigDataEnTiempoReal/assets/47392657/86380f8f-e2ed-4dd8-aec3-40d21c20c63b)
 
 
@@ -64,17 +65,22 @@ Muchas personas utilizan Kafka como un reemplazo para una solución de agregaci�
 
 Muchos usuarios de Kafka procesan datos en pipelines de procesamiento que consisten en múltiples etapas, donde los datos de entrada en bruto se consumen de los topics de Kafka y luego se agregan, enriquecen o transforman de alguna otra manera en nuevos topics para su posterior consumo o procesamiento posterior. Por ejemplo, un pipeline de procesamiento para recomendar artículos de noticias podría rastrear el contenido de artículos de feeds RSS y publicarlo en un tema de "artículos"; un procesamiento adicional podría normalizar o eliminar duplicados de este contenido y publicar el contenido de artículos depurado en un nuevo tema; una etapa final de procesamiento podría intentar recomendar este contenido a los usuarios. Tales pipelines de procesamiento crean gráficos de flujos de datos en tiempo real basados en los topics individuales. A partir de la versión 0.10.0.0, una biblioteca de procesamiento de flujos liviana pero poderosa llamada Kafka Streams está disponible en Apache Kafka para realizar dicho procesamiento de datos como se describe arriba. Aparte de Kafka Streams, otras herramientas de procesamiento de flujos de código abierto incluyen Apache Storm y Apache Samza.
 
+<p align="center">
+    <img src="https://github.com/javisantossanchez/BigDataEnTiempoReal/assets/47392657/014508da-e8a5-4365-b38a-d9a1123d40cb" alt="Datos de un Broker"/>
+</p>
 
-### Arquitectura Kafka
-<div style="text-align: center;">
-![kafka-broker-architecture](https://github.com/javisantossanchez/BigDataEnTiempoReal/assets/47392657/014508da-e8a5-4365-b38a-d9a1123d40cb)
-</div>
+### Kafka Streams
 
+  
 La capa de mensajería de Kafka particiona los datos para almacenarlos y transportarlos. Kafka Streams particiona los datos para procesarlos. En ambos casos, esta partición es lo que permite la localización de datos, elasticidad, escalabilidad, alto rendimiento y tolerancia a fallos. Kafka Streams utiliza los conceptos de particiones y tareas como unidades lógicas de su modelo de paralelismo basado en particiones de topics de Kafka. Existen vínculos estrechos entre Kafka Streams y Kafka en el contexto del paralelismo:
 
 - Cada partición de flujo es una secuencia totalmente ordenada de registros de datos y se mapea a una partición de tema de Kafka.
 - Un registro de datos en el flujo se mapea a un mensaje de Kafka de ese tema.
 - Las claves de los registros de datos determinan la partición de datos tanto en Kafka como en Kafka Streams, es decir, cómo se enrutan los datos a particiones específicas dentro de los topics.
+
+<p align="center">
+    <img src="https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/e7e03b7f-1a0b-4a52-affe-2273d0ea19e9" alt="Kafka Streams"/>
+</p>
 
 La topología del procesador de una aplicación se escala dividiéndola en múltiples tareas. Más específicamente, Kafka Streams crea un número fijo de tareas basado en las particiones del flujo de entrada para la aplicación, con cada tarea asignada a una lista de particiones de los flujos de entrada (es decir, topics de Kafka). La asignación de particiones a tareas nunca cambia, de modo que cada tarea es una unidad fija de paralelismo de la aplicación. Las tareas pueden entonces instanciar su propia topología de procesador basada en las particiones asignadas; también mantienen un búfer para cada una de sus particiones asignadas y procesan mensajes uno a la vez desde estos búferes de registros. Como resultado, las tareas de flujo pueden procesarse de manera independiente y en paralelo sin intervención manual.
 
@@ -85,6 +91,4 @@ Es importante entender que Kafka Streams no es un gestor de recursos, sino una b
 
 ### Kafka Connect
 
-### Kafka Streams
-![kafka-architecture](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/e7e03b7f-1a0b-4a52-affe-2273d0ea19e9)
 
