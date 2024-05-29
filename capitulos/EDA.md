@@ -1,4 +1,3 @@
----
 
 ## Patrones de Diseño: Colas de Mensajes y el Modelo Publicación-Subscripción
 
@@ -59,7 +58,6 @@ El modelo pub-sub permite la comunicación uno-a-muchos y muchos-a-muchos, donde
   - Transmisión de actualizaciones de datos en tiempo real, como precios de acciones
   - Comunicación entre microservicios en arquitecturas de software modernas
 
----
 
 
 # Funcionamiento de la Arquitectura Basada en Eventos
