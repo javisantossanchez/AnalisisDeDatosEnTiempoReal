@@ -34,6 +34,8 @@ Los temas están particionados, lo que significa que un tema se distribuye en va
 
 Para hacer que tus datos sean tolerantes a fallos y altamente disponibles, cada tema puede replicarse, incluso a través de regiones geográficas o centros de datos, de modo que siempre haya múltiples brokers que tengan una copia de los datos en caso de que algo salga mal, necesites hacer mantenimiento en los brokers, etc. Una configuración común en producción es un factor de replicación de 3, es decir, siempre habrá tres copias de tus datos. Esta replicación se realiza a nivel de particiones de tema.
 
+![KappaArchitectureWithKafka](https://github.com/javisantossanchez/BigDataEnTiempoReal/assets/47392657/86380f8f-e2ed-4dd8-aec3-40d21c20c63b)
+
 
 ## Casos de Uso
 
