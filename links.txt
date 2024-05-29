@@ -15,8 +15,6 @@ GUAU
 
 
 "
-¡Me alegra saber que ahora funciona! Aquí te explico por qué el uso de NodePort ha solucionado el problema y cómo funciona en Kubernetes.
-
 ¿Qué es NodePort?
 NodePort es una de las tres formas principales en que los servicios de Kubernetes pueden ser expuestos:
 
@@ -31,15 +29,6 @@ Acceso Externo: NodePort permite el acceso a servicios internos de Kubernetes de
 Puerto Fijo: NodePort expone un puerto específico y fijo en cada nodo del clúster, lo que facilita saber a qué puerto dirigir el tráfico para acceder a un servicio determinado.
 
 Compatibilidad con Firewalls y Seguridad: Al exponer un puerto específico, puedes configurar reglas de firewall y políticas de seguridad para controlar el acceso a tus servicios.
-
-Ejemplo de Flujo de Tráfico con NodePort
-Supongamos que tienes un servicio Kafka UI expuesto en el puerto 32080 con NodePort:
-
-Solicitud Externa: Una solicitud HTTP llega a la IP de uno de los nodos del clúster en el puerto 32080.
-Redirección: Kubernetes redirige esta solicitud al servicio Kafka UI, que está escuchando en el puerto interno 8080.
-Respuesta: El servicio Kafka UI procesa la solicitud y envía una respuesta de vuelta al cliente a través del mismo nodo y puerto.
-Comparación con ClusterIP
-Con ClusterIP, el servicio es accesible solo desde dentro del clúster. Si intentaras acceder al servicio Kafka UI desde fuera del clúster (por ejemplo, desde tu máquina Windows), el tráfico no llegaría al servicio porque ClusterIP no expone el puerto fuera del clúster.
 
 Diagrama de Flujo
 Aquí tienes un diagrama simplificado del flujo de tráfico con NodePort:
@@ -60,77 +49,3 @@ Permite acceso externo desde cualquier dispositivo en la red.
 Usa un puerto fijo que facilita la configuración de acceso.
 Compatible con configuraciones de firewall y políticas de seguridad.
 "
-
-
-### Clase de 8 Horas: Gestión y visualización de grandes conjuntos de datos con Apache Kafka
-
-#### 1. Introducción a Grandes Volúmenes de Datos (1 hora)
-- **Conceptos Básicos de Big Data** (30 min)
-  - Definición de Big Data
-  - Las 5 V de Big Data (Volumen, Velocidad, Variedad, Veracidad, Valor)
-  - Importancia y desafíos de manejar grandes volúmenes de datos
-- **Arquitecturas de Big Data** (30 min)
-  - Arquitectura Lambda
-  - Arquitectura Kappa
-  - Comparación y casos de uso
-
-#### 2. Conceptos Clave para la Gestión de Datos en Tiempo Real (1.5 horas)
-- **Procesamiento en Tiempo Real vs. Procesamiento en Lote** (30 min)
-  - Diferencias y aplicaciones
-  - Herramientas y tecnologías utilizadas
-- **Protocolos de Publicación/Suscripción** (30 min)
-  - Definición y funcionamiento
-  - Casos de uso y ejemplos prácticos
-- **Introducción a Mensajería y Sistemas de Cola** (30 min)
-  - Mensajería asincrónica
-  - Sistemas de cola tradicionales vs. modernos
-
-#### 3. Apache Kafka: Teoría y Fundamentos (2 horas)
-- **Introducción a Apache Kafka** (30 min)
-  - Historia y evolución
-  - Principales características y ventajas
-- **Arquitectura de Apache Kafka** (1 hora)
-  - Componentes principales: Producers, Consumers, Brokers, Topics, Partitions, Zookeeper
-  - Funcionamiento interno: Cómo se almacenan y procesan los datos
-- **Casos de Uso de Apache Kafka** (30 min)
-  - Aplicaciones en la industria
-  - Integración con otras herramientas y tecnologías de Big Data
-
-#### 4. Instalación y Configuración de Apache Kafka (1 hora)
-- **Instalación de Apache Kafka** (30 min)
-  - Requisitos previos
-  - Instalación paso a paso en diferentes entornos (local, servidor)
-- **Configuración Básica** (30 min)
-  - Configuración de Brokers y Zookeeper
-  - Ajustes de rendimiento y optimización
-
-#### 5. Uso Práctico de Apache Kafka (2.5 horas)
-- **Primeros Pasos con Apache Kafka** (30 min)
-  - Crear y gestionar Topics
-  - Enviar y recibir mensajes con Producers y Consumers
-- **Implementación de un Ejemplo Práctico** (1 hora)
-  - Desarrollo de una aplicación simple de flujo de datos en tiempo real
-  - Ejemplo práctico de publicación/suscripción
-- **Monitorización y Gestión de Apache Kafka** (1 hora)
-  - Herramientas de monitorización (Kafka Manager, JMX)
-  - Buenas prácticas de mantenimiento y resolución de problemas
-
-#### 6. Conclusiones y Preguntas (30 min)
-- **Resumen de los puntos clave** (15 min)
-  - Repaso de conceptos importantes
-  - Discusión sobre las aplicaciones prácticas
-- **Sesión de Preguntas y Respuestas** (15 min)
-  - Resolver dudas y preguntas de los alumnos
-  - Discusión abierta sobre el uso de Apache Kafka en proyectos de Big Data
-
-### Resumen del Tiempo:
-- Introducción a Grandes Volúmenes de Datos: 1 hora
-- Conceptos Clave para la Gestión de Datos en Tiempo Real: 1.5 horas
-- Apache Kafka: Teoría y Fundamentos: 2 horas
-- Instalación y Configuración de Apache Kafka: 1 hora
-- Uso Práctico de Apache Kafka: 2.5 horas
-- Conclusiones y Preguntas: 30 min
-
-Total: 8 horas
-
-Espero que esta estructura te sea útil para impartir tu clase de manera efectiva y completa. Si necesitas más detalles sobre algún apartado o ejemplos específicos, no dudes en decírmelo.
