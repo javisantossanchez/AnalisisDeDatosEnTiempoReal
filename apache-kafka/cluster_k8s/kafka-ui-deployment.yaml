@@ -24,7 +24,7 @@ spec:
         - name: KAFKA_CLUSTERS_0_NAME
           value: "ETSISI"
         - name: KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS
-          value: "kafka-service:9092,kafka-service-2:9093,kafka-service-3:9094,kafka-service-4:9095"
+          value: "kafka-service:29092,kafka-service-2:29092,kafka-service-3:29092,kafka-service-4:29092"
         - name: KAFKA_CLUSTERS_0_ZOOKEEPER
           value: "zookeeper-service:2181"
 

@@ -1,0 +1,5 @@
+![batch-processing](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/fdd168af-b4bb-4cf5-82d2-c14db0cd9edc)
+![kappaarchitecture](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/284d4ea6-b408-46fb-981e-665c6310a1a7)
+![stream-processing-app](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/697f6004-58c4-4157-b6c5-7295b843376d)
+![streamprocessor](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/85ad20c3-ef61-4e2b-b668-c859a3ce13b9)
+![RealtimeStreamProcessingLambda](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/7a35cff5-c75e-4a44-ba73-97eb3e571901)
