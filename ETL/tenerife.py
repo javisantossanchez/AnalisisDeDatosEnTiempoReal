@@ -3,7 +3,7 @@ import csv
 def leer_csv(ruta_archivo):
     """Lee un archivo CSV y devuelve los datos en una lista de diccionarios."""
     datos = []
-    with open(ruta_archivo, mode='r', encoding='utf-8') as archivo:
+    with open(ruta_archivo, mode='r', encoding='utf-8-sig') as archivo:
         lector_csv = csv.DictReader(archivo)
         for fila in lector_csv:
             datos.append(fila)
@@ -12,6 +12,7 @@ def leer_csv(ruta_archivo):
 def mostrar_datos(datos):
     """Muestra los datos en pantalla."""
     for fila in datos:
+        print(fila)
         print(f"Zona: {fila['zona']}")
         print(f"Toponimia: {fila['toponimia']}")
         print(f"Latitud: {fila['latitud']}")
@@ -24,7 +25,7 @@ def mostrar_datos(datos):
         print("-" * 40)
 
 # Ruta del archivo CSV (asegúrate de ajustar la ruta según la ubicación de tu archivo)
-ruta_archivo = '/mnt/data/data.csv'
+ruta_archivo = 'afluencia-de-areas-recreativas-2024.csv'
 
 # Leer los datos del CSV
 datos = leer_csv(ruta_archivo)
