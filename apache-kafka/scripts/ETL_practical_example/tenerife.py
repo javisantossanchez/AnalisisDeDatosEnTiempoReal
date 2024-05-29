@@ -27,7 +27,7 @@ def mostrar_datos(datos):
         print("-" * 40)
 
 # Ruta del archivo CSV (asegúrate de ajustar la ruta según la ubicación de tu archivo)
-ruta_archivo = 'afluencia-de-areas-recreativas-2024.csv'
+ruta_archivo = 'data/afluencia-de-areas-recreativas-2024.csv'
 
 # Leer los datos del CSV
 datos = leer_csv(ruta_archivo)
