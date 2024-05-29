@@ -26,8 +26,8 @@ Por otro lado, los datos en streaming se refieren a los datos que se generan con
 - **Procesamiento de flujo:** Los datos en streaming se procesan sobre la marcha, a menudo tan pronto como llegan.
 - **Conocimientos en tiempo real:** Dado que el procesamiento ocurre en tiempo real, los conocimientos derivados de los datos en streaming son inmediatos, lo que permite acciones rápidas.
 - **Utilizados para acciones inmediatas:** Los datos en streaming a menudo se utilizan en escenarios que requieren acciones inmediatas, como el monitoreo de sistemas, el análisis en tiempo real y las recomendaciones instantáneas.
+![streamprocessor](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/85ad20c3-ef61-4e2b-b668-c859a3ce13b9)
 
-![RealtimeStreamProcessingLambda](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/7a35cff5-c75e-4a44-ba73-97eb3e571901)
 
 En la arquitectura de datos moderna, tanto los datos históricos como los datos en streaming tienen su lugar. Los datos históricos son valiosos para comprender las tendencias a largo plazo y hacer pronósticos, mientras que los datos en streaming son cruciales para la toma de decisiones en tiempo real y la capacidad de respuesta inmediata. Una estrategia de datos integral a menudo implica aprovechar las fortalezas de ambos tipos de datos.
 
@@ -64,7 +64,7 @@ La arquitectura Lambda es una arquitectura de procesamiento de datos diseñada p
 
 La capa de lotes maneja las grandes cantidades de datos históricos. Realiza cálculos extensos en todo el conjunto de datos para proporcionar vistas precisas de los datos. Por otro lado, la capa de velocidad se ocupa de los datos en tiempo real, ofreciendo conocimientos rápidos, aunque ligeramente menos precisos.
 
-**IMAGEN LAMBDA ARQUITECTURE JAVI**
+![RealtimeStreamProcessingLambda](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/7a35cff5-c75e-4a44-ba73-97eb3e571901)
 
 Este enfoque permite a la arquitectura Lambda manejar tanto el procesamiento por lotes como el análisis en tiempo real de manera efectiva, asegurando que las organizaciones obtengan los conocimientos que necesitan de manera oportuna.
 
@@ -92,4 +92,3 @@ En lugar de dividir el procesamiento de datos en dos capas separadas (lotes y ve
 
 
 ![stream-processing-app](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/697f6004-58c4-4157-b6c5-7295b843376d)
-![streamprocessor](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/85ad20c3-ef61-4e2b-b668-c859a3ce13b9)
