@@ -39,8 +39,6 @@ Para hacer que tus datos sean tolerantes a fallos y altamente disponibles, cada 
 
 ## Casos de Uso
 
-Aquí hay una descripción de algunos de los casos de uso más populares para Apache Kafka®. Para una visión general de varias de estas áreas en acción, consulta esta [publicación del blog](https://kafka.apache.org/uses).
-
 ### Mensajería
 
 Kafka funciona bien como un reemplazo para un broker de mensajes más tradicional. Los brokers de mensajes se utilizan por diversas razones (para desacoplar el procesamiento de los productores de datos, para amortiguar los mensajes no procesados, etc.). En comparación con la mayoría de los sistemas de mensajería, Kafka tiene un mejor rendimiento, particionamiento incorporado, replicación y tolerancia a fallos, lo que lo convierte en una buena solución para aplicaciones de procesamiento de mensajes a gran escala. En nuestra experiencia, los usos de mensajería suelen tener un rendimiento relativamente bajo, pero pueden requerir baja latencia de extremo a extremo y a menudo dependen de las sólidas garantías de durabilidad que proporciona Kafka.
