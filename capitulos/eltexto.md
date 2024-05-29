@@ -8,8 +8,7 @@
 2. **Bolts**: Unidades de procesamiento que transforman, filtran, agregan, o unen datos.
 3. **Topologías**: Redes de Spouts y Bolts que definen el flujo de datos.
 
-**Arquitectura de Apache Storm**:
-![Arquitectura de Apache Storm](https://storm.apache.org/releases/current/storm-cluster.jpg)
+
 
 **Características de Apache Storm**:
 - **Procesamiento en Tiempo Real**.
@@ -25,8 +24,6 @@
 2. **Task Managers**: Ejecutan tareas de procesamiento.
 3. **Data Streams**: Flujos de datos continuos procesados por Flink.
 
-**Arquitectura de Apache Flink**:
-![Arquitectura de Apache Flink](https://nightlies.apache.org/flink/flink-docs-release-1.13/fig/cluster_highlevel.svg)
 
 **Características de Apache Flink**:
 - **Procesamiento en Tiempo Real y por Lotes**.
