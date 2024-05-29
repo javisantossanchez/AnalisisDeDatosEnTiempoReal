@@ -90,5 +90,21 @@ En lugar de dividir el procesamiento de datos en dos capas separadas (lotes y ve
 
 ![kappaarchitecture](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/284d4ea6-b408-46fb-981e-665c6310a1a7)
 
+La capa de flujo ingiere los datos entrantes, los procesa y luego los envía para su almacenamiento o análisis adicional. La agilidad de esta capa ofrece una latencia menor, proporcionando conocimientos más rápidos e inmediatos a partir de los flujos de datos.
+
+### Procesamiento de Flujos: El Corazón de la Arquitectura Kappa
+
+La esencia de la Arquitectura Kappa reside en su enfoque del procesamiento de flujos. El procesamiento de flujos en Kappa implica consultar continuamente los datos a medida que llegan. Esto permite análisis en tiempo real, detección de patrones y toma de decisiones, todos cruciales para aplicaciones que necesitan reacciones instantáneas, como la detección de fraudes o el monitoreo de sistemas.
 
 ![stream-processing-app](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/697f6004-58c4-4157-b6c5-7295b843376d)
+
+En la Arquitectura Kappa, la capa de procesamiento de flujos constituye dos componentes clave: la parte de ingesta de datos y la parte de procesamiento de datos.
+
+**Componente de Ingesta de Datos:** Este subsistema asume la tarea de capturar y almacenar datos en bruto que provienen de diversas fuentes como archivos de registro, datos de sensores y APIs. La afluencia de datos es generalmente en tiempo real y se almacena en un sistema de almacenamiento de datos distribuido, como una cola de mensajes o una base de datos NoSQL.
+
+**Componente de Procesamiento de Datos:** Este subsistema tiene la responsabilidad de manipular los datos a medida que llegan y preservar los resultados en un sistema de almacenamiento de datos distribuido. Generalmente, está construido utilizando un motor de procesamiento de flujos, como Apache Flink o Apache Storm, y está diseñado para manejar grandes flujos de datos mientras proporciona acceso rápido y confiable a los resultados de las consultas. En la arquitectura Kappa, la capa de servicio no existe como una entidad separada. En su lugar, la responsabilidad de entregar los resultados de las consultas a los usuarios en tiempo real se integra en el subsistema de procesamiento de flujos.
+
+Los componentes del procesamiento de flujos en la arquitectura Kappa están construidos con un enfoque en la tolerancia a fallos y la escalabilidad, con cada unidad llevando a cabo un papel específico en la cadena de procesamiento de datos en tiempo real.
+
+Además, el enfoque de la Arquitectura Kappa en el procesamiento de flujos simplifica significativamente la cadena de procesamiento de datos. Al eliminar la necesidad de una capa separada de procesamiento por lotes, Kappa reduce la complejidad del sistema, resultando en una arquitectura más manejable y escalable.
+
