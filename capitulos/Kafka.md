@@ -66,7 +66,8 @@ Muchos usuarios de Kafka procesan datos en pipelines de procesamiento que consis
 
 
 ### Arquitectura Kafka
-![kafka-architecture](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/e7e03b7f-1a0b-4a52-affe-2273d0ea19e9)
+
+![kafka-broker-architecture](https://github.com/javisantossanchez/BigDataEnTiempoReal/assets/47392657/014508da-e8a5-4365-b38a-d9a1123d40cb)
 
 
 La capa de mensajería de Kafka particiona los datos para almacenarlos y transportarlos. Kafka Streams particiona los datos para procesarlos. En ambos casos, esta partición es lo que permite la localización de datos, elasticidad, escalabilidad, alto rendimiento y tolerancia a fallos. Kafka Streams utiliza los conceptos de particiones y tareas como unidades lógicas de su modelo de paralelismo basado en particiones de topics de Kafka. Existen vínculos estrechos entre Kafka Streams y Kafka en el contexto del paralelismo:
@@ -80,3 +81,10 @@ La topología del procesador de una aplicación se escala dividiéndola en múlt
 De manera ligeramente simplificada, el paralelismo máximo al que tu aplicación puede ejecutarse está limitado por el número máximo de tareas de flujo, que a su vez está determinado por el número máximo de particiones de los topics de entrada de los que la aplicación está leyendo. Por ejemplo, si tu tema de entrada tiene 5 particiones, entonces puedes ejecutar hasta 5 instancias de la aplicación. Estas instancias procesarán de manera colaborativa los datos del tema. Si ejecutas un número mayor de instancias de la aplicación que particiones del tema de entrada, las instancias "excedentes" se iniciarán pero permanecerán inactivas; sin embargo, si una de las instancias ocupadas falla, una de las instancias inactivas retomará el trabajo de la anterior.
 
 Es importante entender que Kafka Streams no es un gestor de recursos, sino una biblioteca que "se ejecuta" en cualquier lugar donde se ejecute su aplicación de procesamiento de flujos. Múltiples instancias de la aplicación se ejecutan ya sea en la misma máquina o distribuidas en múltiples máquinas y las tareas pueden distribuirse automáticamente por la biblioteca a esas instancias de la aplicación en ejecución. La asignación de particiones a tareas nunca cambia; si una instancia de la aplicación falla, todas sus tareas asignadas se reiniciarán automáticamente en otras instancias y continuarán consumiendo de las mismas particiones de flujo.
+
+
+
+
+### Kafka Streams
+![kafka-architecture](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/e7e03b7f-1a0b-4a52-affe-2273d0ea19e9)
+
