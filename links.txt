@@ -9,6 +9,7 @@ https://nexocode.com/blog/posts/kappa-architecture/
 https://ably.com/topic/pub-sub
 https://www.confluent.io/es-es/learn/batch-vs-real-time-data-processing/
 https://www.techtarget.com/searchdatamanagement/definition/5-Vs-of-big-data
+https://kafka.apache.org/10/documentation/streams/architecture
 
 https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying
 GUAU
