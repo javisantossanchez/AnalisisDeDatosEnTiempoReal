@@ -41,7 +41,7 @@ def main():
         value_serializer=lambda v: json.dumps(v).encode('utf-8')
     )
 
-    topic = 'stream_test_2'  # Replace with your Kafka topic name
+    topic = 'ratings'  # Replace with your Kafka topic name
 
     # Send data to Kafka
     for data in generate():
