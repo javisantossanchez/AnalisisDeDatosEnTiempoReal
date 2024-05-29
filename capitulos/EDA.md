@@ -1,5 +1,5 @@
 
-## ***Patrones de Diseño: Colas de Mensajes y el Modelo Publicación-Subscripción***
+## ***Patrones de Diseño: Colas de Mensajes, Modelo Publicación-Subscripción y Arquitectura Basada en Eventos***
 
 ### ***Comunicación Asíncrona y Síncrona***
 
@@ -62,7 +62,7 @@ El modelo pub-sub permite la comunicación uno-a-muchos y muchos-a-muchos, donde
 
 # Funcionamiento de la Arquitectura Basada en Eventos
 
-La arquitectura basada en eventos (EDA, por sus siglas en inglés) es un patrón de diseño de software que permite la construcción de sistemas escalables y acoplados de forma flexible. Los eventos, que representan ocurrencias o cambios en el sistema, impulsan el flujo. Son generados por diversas fuentes, publicados en un bus de eventos o en un intermediario de mensajes, y consumidos de manera asincrónica por componentes interesados. Este enfoque promueve flexibilidad, escalabilidad y resiliencia.
+La arquitectura basada en eventos (Event Driven Architecture, por sus siglas en inglés) es un patrón de diseño de software que permite la construcción de sistemas escalables y acoplados de forma flexible. Los eventos, que representan ocurrencias o cambios en el sistema, impulsan el flujo. Son generados por diversas fuentes, publicados en un bus de eventos o en un intermediario de mensajes, y consumidos de manera asincrónica por componentes interesados. Este enfoque promueve flexibilidad, escalabilidad y resiliencia.
 
 Los beneficios de EDA incluyen escalabilidad, acoplamiento flexible y desarrollo y despliegue independiente de los componentes del sistema. Maneja flujos de trabajo complejos, integraciones basadas en eventos y procesamiento de eventos en tiempo real.
 
