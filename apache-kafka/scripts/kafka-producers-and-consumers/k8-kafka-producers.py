@@ -30,8 +30,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     
-    brokers = ""
-    topic = ""
+    brokers = "172.31.216.72:30083"
+    topic = "ETL"
 
     kafka_producer = KafkaProducer(brokers)
 

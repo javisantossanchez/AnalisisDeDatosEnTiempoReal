@@ -37,8 +37,8 @@ def kafka_consumer_example(brokers, group_id, topics):
         consumer.close()
 
 if __name__ == "__main__":
-    brokers = "kafka1:9092,kafka2:9092,kafka3:9092,kafka4:9092"
-    group_id = "temperature_group"
-    topics = ["temperatura"]
+    brokers = "172.31.216.72:30083"
+    group_id = "ETL_group"
+    topics = ["ETL"]
 
     kafka_consumer_example(brokers, group_id, topics)
