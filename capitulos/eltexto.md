@@ -40,8 +40,6 @@
 3. **Brokers**: Servidores que almacenan y sirven los datos.
 4. **Topics**: Categorías a las que los mensajes son enviados.
 
-**Arquitectura de Apache Kafka**:
-![Arquitectura de Apache Kafka](https://kafka.apache.org/quickstart)
 
 **Características de Apache Kafka**:
 - **Alta Throughput**.
@@ -128,7 +126,6 @@ En este modelo, los mensajes son enviados a una cola donde son almacenados hasta
 - Garantía de entrega de mensajes.
 - Escalabilidad y tolerancia a fallos.
 
-![Arquitectura de Cola de Mensajes](https://www.cloudamqp.com/img/library/mq_model.png)
 
 ## 2. Publicación/Suscripción (Publish/Subscribe)
 
@@ -143,7 +140,6 @@ En este modelo, los mensajes son enviados a un "topic" o "canal" al que los susc
 - Comunicación eficiente con múltiples consumidores.
 - Flexibilidad para agregar nuevos suscriptores sin afectar a los productores.
 
-![Arquitectura de Publicación/Suscripción](https://d1.awsstatic.com/events/2020/summits/replays/2020_Replay_Gateway.jpg)
 
 ## 3. Solicitud/Respuesta (Request/Reply)
 
@@ -158,8 +154,6 @@ En este modelo, un cliente envía una solicitud a un servidor y espera una respu
 - Modelo fácil de entender y utilizar.
 - Adecuado para operaciones donde se espera una respuesta inmediata.
 
-![Arquitectura de Solicitud/Respuesta](https://miro.medium.com/max/1400/1*YcTXe_1kYTbRsMsQboDclw.png)
-
 ## 4. Envío de Eventos (Event-Driven)
 
 **Descripción**:
@@ -172,8 +166,6 @@ En este modelo, los eventos son emitidos por los productores y los consumidores 
 **Ventajas**:
 - Desacoplamiento entre componentes.
 - Escalabilidad y facilidad para manejar eventos en tiempo real.
-
-![Arquitectura de Envío de Eventos](https://docs.aws.amazon.com/images/eventbridge/latest/userguide/images/ee-eventbridge.png)
 
 ## 5. Multicast
 
@@ -188,7 +180,6 @@ En este modelo, un mensaje es enviado a un grupo de destinatarios simultáneamen
 - Eficiencia en el uso del ancho de banda.
 - Adecuado para aplicaciones como streaming de video y actualizaciones en tiempo real.
 
-![Arquitectura de Multicast](https://www.cisco.com/c/dam/en/us/products/collateral/ios-nx-os-software/ip-multicast/multicast-architecture-fig-1.jpg)
 
 ## 6. Broadcast
 
@@ -203,7 +194,6 @@ En este modelo, un mensaje es enviado a todos los nodos de la red. A diferencia 
 - Simple y directo.
 - Útil para descubrimiento de servicios y dispositivos.
 
-![Arquitectura de Broadcast](https://miro.medium.com/max/1400/1*mWwX_s2a3ObU-7nMs9dGpQ.png)
 
 # Conclusión
 
