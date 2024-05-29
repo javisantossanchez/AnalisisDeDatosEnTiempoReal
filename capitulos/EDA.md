@@ -1,14 +1,14 @@
 
-## Patrones de Diseño: Colas de Mensajes y el Modelo Publicación-Subscripción
+## ***Patrones de Diseño: Colas de Mensajes y el Modelo Publicación-Subscripción***
 
-### Comunicación Asíncrona y Síncrona
+### ***Comunicación Asíncrona y Síncrona***
 
 En el contexto de patrones de diseño, la comunicación entre componentes puede ser asíncrona o síncrona. 
 
 - **Asíncrona**: Los componentes se comunican sin esperar una respuesta inmediata. Esto es común en sistemas donde los componentes necesitan operar de manera independiente para mejorar el rendimiento y la escalabilidad.
 - **Síncrona**: Los componentes esperan una respuesta inmediata antes de continuar. Esto es útil en situaciones donde se necesita una confirmación instantánea de que una operación se ha completado.
 
-### Características Comunes
+### ***Características Comunes***
 
 Ambos patrones de diseño, Colas de Mensajes y Publicación-Subscripción, comparten varias características clave:
 
@@ -17,27 +17,27 @@ Ambos patrones de diseño, Colas de Mensajes y Publicación-Subscripción, compa
 - **Fiabilidad**: Implementan mecanismos para asegurar que los mensajes no se pierdan, como almacenamiento persistente y confirmaciones de recepción.
 - **Flexibilidad**: Facilitan la adición de nuevos componentes sin cambiar la lógica existente.
 
-### Colas de Mensajes
+### ***Colas de Mensajes***
 
 Las colas de mensajes permiten a las aplicaciones comunicarse de manera asincrónica y desacoplada. Este patrón se utiliza comúnmente en sistemas distribuidos para garantizar que los mensajes se entreguen de manera confiable.
 
-#### Funcionamiento
+#### *Funcionamiento*
 
 1. **Productores y Consumidores**: Los productores envían mensajes a la cola, mientras que los consumidores los reciben y procesan.
 2. **Encolado y Desencolado**: Los mensajes se encolan en el orden recibido y se desencolan por los consumidores para su procesamiento.
 3. **Asincronía**: Los productores pueden enviar mensajes sin esperar una respuesta inmediata, y los consumidores procesan los mensajes cuando estén listos.
 
-### Modelo Publicación-Subscripción
+### ***Modelo Publicación-Subscripción***
 
 El modelo pub-sub permite la comunicación uno-a-muchos y muchos-a-muchos, donde los publicadores emiten mensajes y los suscriptores los reciben sin conocimiento directo entre ellos.
 
-#### Funcionamiento
+#### *Funcionamiento*
 
 1. **Publicadores y Suscriptores**: Los publicadores envían mensajes a un "broker" o "bus de mensajes", y los suscriptores se registran para recibir mensajes de interés.
 2. **Broker**: Gestiona la distribución de mensajes a los suscriptores interesados.
 3. **Asincronía y Sincronía**: Generalmente asincrónico, pero puede soportar interacciones síncronas cuando se necesita una respuesta inmediata.
 
-### Comparación entre Colas de Mensajes y Publicación-Subscripción
+### ***Comparación entre Colas de Mensajes y Publicación-Subscripción***
 
 | Aspecto                | Colas de Mensajes                                         | Publicación-Subscripción                                   |
 |------------------------|-----------------------------------------------------------|------------------------------------------------------------|
@@ -46,7 +46,7 @@ El modelo pub-sub permite la comunicación uno-a-muchos y muchos-a-muchos, donde
 | Uso Común              | Procesamiento de tareas, integración de sistemas          | Notificaciones en tiempo real, actualización de datos en tiempo real |
 | Sincronía              | Asíncrono                                                 | Asíncrono, pero puede soportar sincronía                   |
 
-### Casos de Uso Comunes
+### ***Casos de Uso Comunes***
 
 - **Colas de Mensajes**: 
   - Procesamiento de tareas en segundo plano
