@@ -26,7 +26,7 @@ analisisdedatosentiemporeal
 │ │ ├── instalardependencias.sh (script que instala las dependencias del laboratorio)
 
 ```
-Practica 1: Despliegue de kafka con un broker utilizando docker-compose
+Practica 1: Despliegue de kafka con un broker utilizando docker-compose.
 
 ```````
 #Desde la raiz de nuestro proyecto Git
@@ -54,11 +54,9 @@ sudo docker rm -f $(sudo docker ps -a -q)
 
 sudo docker-compose up
 ```````
-La terminal se va a quedar ocupada por el contenedor de la UI
-Abrimos una nueva terminal y nos volvemos a dirigir a la carpeta de scripts para realizar la siguiente practica
+La terminal se va a quedar ocupada por el contenedor de la UI.
 
-
-
+Abrimos una nueva terminal y nos volvemos a dirigir a la carpeta de scripts para realizar la siguiente practica.
 
 Practica 3: Interaccion con kafka a través de un productor con Python
 
