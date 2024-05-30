@@ -39,9 +39,9 @@ cd apache-kafka/docker-compose-deployment/single-broker
 sudo docker-compose up 
 
 
- ✔ Container zookeeper  Started                                                                                                                                                                                       0.0s 
- ✔ Container kafka      Started                                                                                                                                                                                       0.0s 
- ✔ Container kafka-ui   Started                                                                                                                                                                                       0.0s 
+ ✔ Container zookeeper  Started                                                                                                                                                                                       
+ ✔ Container kafka      Started                                                                                                                                                                                        
+ ✔ Container kafka-ui   Started                                                                                                                                                
 
 #Para comprobar que todos esta bien:
 sudo docker ps
