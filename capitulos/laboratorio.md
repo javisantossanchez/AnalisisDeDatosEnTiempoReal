@@ -1,15 +1,17 @@
 ## ***Laboratorio Análisis de Datos en Tiempo Real***
 
+### ***Practica 0: Instalar dependencias. *** ###
 
-Antes de comenzar el laboratorio, es imprescindible tener instalado las tecnologías que se utilizan.
-Para ello, se proporciona el script de la carpeta _scripts/instalardependencias.sh_, el cual se encarga de instalar Docker, docker-compose, microk8s y las dependencias de python:
+Antes de comenzar el laboratorio, es imprescindible tener instalado el software que se va a emplear.
+Para ello, se proporciona el script de la carpeta _scripts/instalardependencias.sh_, el cual se encarga de instalar Docker, docker-compose, microk8s y las dependencias necesarias de python:
 - kafka-python
 - confluent-kafka
 - argparse (normalmente debería estar instalado)
     
 Podemos comprobar la instalación con:
 ```
-command -v docker-compose  #Por ejemplo
+command -v docker-compose  # para docker-compose, docker para Docker y
+                           # microk8s para probar la instalación de k8s 
 ```
 
 La jerarquia de las carpetas es:
