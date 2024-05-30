@@ -4,8 +4,10 @@ Instalar Docker, docker-compose, microk8s y las dependencias de python:
     - kafka-python
     - confluent-kafka
     - argparse (normalmente debería estar instalado)
-
-```````
+Podemos comprobar la instalación con:
+```
+command -v docker-compose  #Por ejemplo
+```
 
 La jerarquia de las carpetas es:
 ```
