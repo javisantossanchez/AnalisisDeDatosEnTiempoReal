@@ -20,15 +20,15 @@ analisisdedatosentiemporeal
 ├── README.md
 ├── capitulos (Aqui se encuentra el texto de la exposicion)
 ├── .gitignore
-├── apache-kafka 
-│ ├── docker-compose-deployment
-│ │ ├── multiple-broker (carpeta que contiene el docker-compose que despliega una instancia de kafka con 4 brokers)
-│ │ └── single-broker (carpeta que contiene el docker-compose que despliega una instancia de kafka con 1 broker)
-│ ├── k8-deployment (carpeta que contiene los despliegues necesarios de una instancia de kafka con 4 brokers)
-│ ├── scripts
-│ │ ├── ETL practical example (carpeta que contiene los ejercicios de extracción y publicación de eventos en kafka)
-│ │ └── kafka-producers-and-consumers (carpeta que contiene las primeras publicaciones/consumiciones de eventos con kafka)
-│ │ ├── instalardependencias.sh (script que instala las dependencias del laboratorio)
+└── apache-kafka 
+  ├── docker-compose-deployment
+  │ ├── multiple-broker (carpeta que contiene el docker-compose que despliega una instancia de kafka con 4 brokers)
+  │ └── single-broker (carpeta que contiene el docker-compose que despliega una instancia de kafka con 1 broker)
+  ├── k8-deployment (carpeta que contiene los despliegues necesarios de una instancia de kafka con 4 brokers)
+  └── scripts
+    ├── ETL practical example (carpeta que contiene los ejercicios de extracción y publicación de eventos en kafka)
+    └── kafka-producers-and-consumers (carpeta que contiene las primeras publicaciones/consumiciones de eventos con kafka)
+    └── instalardependencias.sh (script que instala las dependencias del laboratorio)
 
 ```
 ### ***Practica 1: Despliegue de kafka con un broker utilizando docker-compose.*** ###
