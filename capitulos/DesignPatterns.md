@@ -1,12 +1,15 @@
 
 ## ***Patrones de Diseño: Colas de Mensajes, Modelo Publicación-Subscripción y Arquitectura Basada en Eventos***
 
+Para poder hablar sobre los patrones de diseño de sistemas de comunicación, principalmente de aquellos que están basados en el envío de mensajes/eventos, es necesario entender de qué manera se produce la comunicación entre los actores que intervienen en la generación y comunicación de los datos.
 ### ***Comunicación Asíncrona y Síncrona***
 
 En el contexto de patrones de diseño, la comunicación entre componentes puede ser asíncrona o síncrona. 
 
 - **Asíncrona**: Los componentes se comunican sin esperar una respuesta inmediata. Esto es común en sistemas donde los componentes necesitan operar de manera independiente para mejorar el rendimiento y la escalabilidad.
 - **Síncrona**: Los componentes esperan una respuesta inmediata antes de continuar. Esto es útil en situaciones donde se necesita una confirmación instantánea de que una operación se ha completado.
+
+Otra manera de poder referirse a este tipo de comunicaciones es **comunicación agnóstica**. Esto significa que cada miembro en la cadena de la comunicación solo es conocedor de los sistemas con los que intrínsecamente le es necesario para emplear su función.
 
 ### ***Colas de Mensajes***
 
