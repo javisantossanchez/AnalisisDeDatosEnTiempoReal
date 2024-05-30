@@ -3,10 +3,12 @@
 
 Antes de comenzar el laboratorio, es imprescindible tener instalado las tecnologías que se utilizan.
 Para ello, se proporciona el script de la carpeta scripts/instalardependencias.sh, el cual se encarga de lo siguiente:
+
 Instalar Docker, docker-compose, microk8s y las dependencias de python:
     - kafka-python
     - confluent-kafka
     - argparse (normalmente debería estar instalado)
+    
 Podemos comprobar la instalación con:
 ```
 command -v docker-compose  #Por ejemplo
