@@ -137,9 +137,10 @@ Nos dirigimos a: apache-kafka/scripts/ETL_practical_example
 El primer caso de uso es el programa tenerife.py.
 Este programa extrae la siguiente informacion del archivo data/afluencia-de-areas-recreativas-2024.csv con el siguiente formato:
 
-| Zona  | Toponimia   | Latitud | Longitud | Tipo de Actividad | Fecha de Inicio | Fecha de Fin | Cantidad | Unidad |
-|------------------------|-----------------------------------------------------------|------------------------------------------------------------|
-Arafo| ORTICOSA (Camp.) | 28.38251660028622 | -16.446995416088964 | "Campamento, Aula, Centro" | 2024-01-20T11:00:00 | 2024-01-21T16:00:00 | 20 | PERSONA
+| Zona   | Toponimia             | Latitud          | Longitud           | Tipo de Actividad         | Fecha de Inicio       | Fecha de Fin         | Cantidad | Unidad   |
+|--------|-----------------------|------------------|--------------------|--------------------------|-----------------------|----------------------|----------|----------|
+| Arafo  | ORTICOSA (Camp.)      | 28.38251660028622| -16.446995416088964| Campamento, Aula, Centro | 2024-01-20T11:00:00   | 2024-01-21T16:00:00  | 20       | PERSONA  |
+
 
 Esta información se procesa en Python y se publica en Kafka en el topic 'TenerifeAreasRecreativas'.
 ```
