@@ -1,6 +1,6 @@
 ## ***Laboratorio Análisis de Datos en Tiempo Real***
 
-### ***Practica 0: Instalar dependencias. *** ###
+### ***Practica 0: Instalar dependencias.*** ###
 
 Antes de comenzar el laboratorio, es imprescindible tener instalado el software que se va a emplear.
 Para ello, se proporciona el script de la carpeta _scripts/instalardependencias.sh_, el cual se encarga de instalar Docker, docker-compose, microk8s y las dependencias necesarias de python:
