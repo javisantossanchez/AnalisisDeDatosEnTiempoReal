@@ -74,15 +74,13 @@ Los componentes individuales que interactúan con el sistema envían eventos, qu
 
 EDA tiene ventajas como la mejora de la capacidad de respuesta, flexibilidad y extensibilidad, pero introduce complejidades como la sobrecarga operativa, los desafíos de ordenación de eventos y la necesidad de un modelado y gestión efectivos de eventos.
 
-En resumen, la arquitectura basada en eventos utiliza patrones arquitectónicos como la programación basada en eventos, microservicios basados en eventos y tecnologías de procesamiento de eventos para construir sistemas escalables, flexibles y acoplados de forma flexible que pueden procesar y manejar eventos y flujos de trabajo en tiempo real.
+
 
 ## Beneficios
 
 Los beneficios de la arquitectura basada en eventos derivan de cómo los sistemas y componentes están acoplados de forma flexible, lo que puede facilitar el desarrollo y despliegue independiente de sistemas, la mejora de la escalabilidad y la tolerancia a fallos, y la integración con sistemas externos, especialmente en comparación con las arquitecturas monolíticas.
 
 La arquitectura basada en eventos, como un enfoque para soportar sistemas complejos y distribuidos, a menudo se implementa mediante el uso de otros patrones de software importantes, como microservicios y programación basada en eventos (EDP), junto con tecnologías de procesamiento de eventos como Apache Kafka.
-
-Los microservicios son un paradigma a nivel de arquitectura donde las aplicaciones se componen de pequeños servicios desplegables de forma independiente que se comunican entre sí a través de un protocolo estándar. Promueve flexibilidad, escalabilidad y facilidad de mantenimiento.
 
 La programación basada en eventos es un paradigma a nivel de código de software donde las funciones clave o la lógica de negocio de un programa se invocan en respuesta a eventos entrantes; el programa responde a los eventos a medida que ocurren.
 
