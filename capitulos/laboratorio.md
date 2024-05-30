@@ -78,6 +78,7 @@ fi
 ```````
 
 La jerarquia de las carpetas es:
+```
 analisisdedatosentiemporeal
 ├── README.md
 ├── capitulos (Aqui se encuentra el texto de la exposicion)
@@ -100,7 +101,7 @@ analisisdedatosentiemporeal
 │ ├── test_main.py
 │ └── module1
 │ ├── init.py
-
+```
 Practica 1: Despliegue de kafka con un broker utilizando docker-compose
 
 ```````
