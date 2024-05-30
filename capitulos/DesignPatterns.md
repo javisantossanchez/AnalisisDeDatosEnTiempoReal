@@ -60,15 +60,15 @@ Ambos patrones de diseño, Colas de Mensajes y Publicación-Subscripción, compa
 
 
 
-# Funcionamiento de la Arquitectura Basada en Eventos
+### ***Funcionamiento de la Arquitectura Basada en Eventos***
 
-La arquitectura basada en eventos (Event Driven Architecture, por sus siglas en inglés) es un patrón de diseño de software que permite la construcción de sistemas escalables y acoplados de forma flexible. Los eventos, que representan ocurrencias o cambios en el sistema, impulsan el flujo. Son generados por diversas fuentes, publicados en un bus de eventos o en un intermediario de mensajes, y consumidos de manera asincrónica por componentes interesados. Este enfoque promueve flexibilidad, escalabilidad y resiliencia.
+La arquitectura basada en eventos (**Event Driven Architecture** o **EDA**, por sus siglas en inglés) es un patrón de diseño de software que permite la construcción de sistemas escalables y acoplados de forma flexible. Esta arquitectura está basada en _los eventos_, que representan ocurrencias o cambios en el sistema, impulsan el flujo de los datos. Son generados por diversas fuentes, publicados en un bus de eventos o en un intermediario de mensajes, y consumidos de manera asincrónica por componentes interesados. Este enfoque promueve flexibilidad, escalabilidad y resiliencia.
 
 Los beneficios de EDA incluyen escalabilidad, acoplamiento flexible y desarrollo y despliegue independiente de los componentes del sistema. Maneja flujos de trabajo complejos, integraciones basadas en eventos y procesamiento de eventos en tiempo real.
 
-Al adoptar la arquitectura basada en eventos, los sistemas ganan la capacidad de reaccionar de manera asincrónica e independiente a los eventos, haciéndolos escalables. La arquitectura también maneja desafíos de consistencia de datos usando técnicas como versionado de eventos, idempotencia y acciones de compensación.
+Al adoptar la arquitectura basada en eventos, los sistemas ganan la capacidad de reaccionar de manera independiente a los eventos, haciéndolos escalables y adaptables a más necesidades de negocio. La arquitectura también maneja desafíos de consistencia de datos usando técnicas como versionado de eventos, idempotencia y acciones de compensación.
 
-Un ejemplo común es una aplicación basada en interacción gráfica, como un videojuego: la aplicación trabaja en respuesta a los clics del ratón del usuario o las selecciones del menú. Esta analogía puede extenderse a funciones a nivel de sistema para implementar lógica empresarial y flujos de trabajo, mucho más allá de lo que un usuario final podría ver. La programación basada en eventos es a menudo el medio por el cual un componente determinado soporta su rol en una arquitectura basada en microservicios.
+Un ejemplo común es una aplicación basada en interacción gráfica, un videojuego: la aplicación trabaja en respuesta a los clics del ratón del usuario o las selecciones del menú. Esta analogía puede extenderse a funciones a nivel de sistema para implementar lógica empresarial y flujos de trabajo, mucho más allá de lo que un usuario final podría ver. La programación basada en eventos es a menudo el medio por el cual un componente determinado soporta su rol en una arquitectura basada en microservicios.
 
 Los componentes individuales que interactúan con el sistema envían eventos, que representan actividad o solicitudes a nivel de sistema o negocio; esos eventos son recopilados por la plataforma de procesamiento de eventos, para su filtrado, aumento y distribución a otros componentes dependientes o interesados. La comunicación entre estos componentes se maneja a través de microservicios anunciados por cada componente. Dentro de los componentes, los microservicios se implementan utilizando un modelo de programación basado en eventos.
 
@@ -76,7 +76,7 @@ EDA tiene ventajas como la mejora de la capacidad de respuesta, flexibilidad y e
 
 
 
-## Beneficios
+#### Beneficios
 
 Los beneficios de la arquitectura basada en eventos derivan de cómo los sistemas y componentes están acoplados de forma flexible, lo que puede facilitar el desarrollo y despliegue independiente de sistemas, la mejora de la escalabilidad y la tolerancia a fallos, y la integración con sistemas externos, especialmente en comparación con las arquitecturas monolíticas.
 
@@ -84,7 +84,7 @@ La arquitectura basada en eventos, como un enfoque para soportar sistemas comple
 
 La programación basada en eventos es un paradigma a nivel de código de software donde las funciones clave o la lógica de negocio de un programa se invocan en respuesta a eventos entrantes; el programa responde a los eventos a medida que ocurren.
 
-## Ejemplos del Mundo Real
+### ***Ejemplos del Mundo Real***
 
 | E-commerce Order Processing | Internet of Things (IoT) Data Collection | User Registration & Authentication | Notification System | Stock Market Trading |
 |-----------------------------|-------------------------------------------|------------------------------------|---------------------|----------------------|
