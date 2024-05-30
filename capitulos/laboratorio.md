@@ -64,11 +64,11 @@ Abrimos una nueva terminal y nos volvemos a dirigir a la carpeta de scripts para
 
 Practica 3: Interaccion con kafka a través de un productor con Python
 
-Para hacer esta práctica, debemos antes consultar el archivo kafka-producers.py, el cual está en la carpeta: 
+Para hacer esta práctica, debemos antes consultar el archivo **kafka-producers.py**, el cual está en la carpeta: 
 ```````
 cd apache-kafka/scripts/kafka-producers-and-consumers
 ```````
-Este script resuelve los nombres de dominio de nuestros contenedores utilizando DNS, por lo que debemos actualizar nuestro archivo _/etc/hosts_.
+Como se ve en el código del programa, este resuelve los nombres de dominio de nuestros contenedores utilizando DNS (_Domain Name Server_), por lo que debemos actualizar nuestro archivo _/etc/hosts_.
 Para ello, ejecutamos:
 
 ```````
@@ -98,7 +98,7 @@ Podemos comprobar en nuestra UI (o a través de comandos) el estado de kafka (y 
 
 ### ***Practica 3: Interaccion con kafka a través de un consumidor con Python*** ###
 
-Ahora vamos a crear un consumidor que apunte al mismo topic que hemos creado previamente.
+Ahora vamos a crear un **consumidor** que apunte al mismo topic que hemos creado previamente.
 ```````
 python3 kafka-consumer.py etsisi
 ```````
@@ -111,7 +111,9 @@ Si se quiere ejecutar por libre, _simplemente_:
 cd apache-kafka-scripts/kafka-producers-and-consumers/java
 sudo ./install-java.sh                                  # Para instalar java y demás dependencias y además crea el proyecto Maven
                                                         # es recomendable consultar para luego ejecutar el código
-
+# Ejecutar el programa pasando el mensaje como argumento
+#Mirar el archivo KafkaProducerExample.java
+mvn exec:java -Dexec.mainClass="com.example.KafkaProducerExample" -Dexec.args="$MESSAGE"
 
 ```````
 
@@ -122,9 +124,10 @@ cd apache-kafka/k8s-deployment
 ```````
 
 En esa carpeta tenemos todos los .yaml que definen la arquitectura a desplegar, junto con dos scripts:
-    1- startcluster.sh: se encarga de levantar en orden los pods
-    2- cleanup_kafka.sh: elimina todos los pods corriendo (ojo, TODOS, cuidado si teneis otros pods vuestros corriendo)
-Para levantarlo, unicamente tenemos que ejecutar el codigo:
+ - **startcluster.sh**: se encarga de levantar en orden los pods
+ - **cleanup_kafka.sh**: elimina todos los pods corriendo (**ojo, TODOS**, cuidado si teneis otros pods corriendo).
+   
+Para levantarlo, _únicamente_ tenemos que ejecutar el codigo:
 ```
 sudo ./startcluster.sh
 
@@ -140,8 +143,10 @@ Ahora, nos dirigimos a:
 ```````
 apache-kafka/scripts/kafka-producers-and-consumers.
 ```````
-Antes de ejecutar el productor sobre el cluster de Kubernetes, debemos actualizar la IP en el encabezado del programa: k8-kafka-producers.py.
-
+Antes de ejecutar el productor sobre el cluster de Kubernetes, debemos actualizar la IP en el encabezado del programa, siendo la siguiente variable: **k8-kafka-producers.py**.
+```````
+kubernetes_worker_node_IP = "XXXX.XX.XX.XX"
+```````
 Lo importante es apreciar las diferencias del despliegue subyacente **(k8s/docker-kubernetes)**.
 
 ```
@@ -151,46 +156,51 @@ Message delivered to etsisi_kubernetes [0]
 
 ### ***Practica 6: Extraer datos historicos de un archivo csv y publicarlos en kafka*** ###
 
-Nos dirigimos a: apache-kafka/scripts/ETL_practical_example
+Nos dirigimos a: 
 
-El primer caso de uso es el programa tenerife.py.
+```
+apache-kafka/scripts/ETL_practical_example
+```
 
-Este programa extrae la siguiente informacion del archivo data/afluencia-de-areas-recreativas-2024.csv con el siguiente formato:
+El primer caso de uso es el programa **tenerife.py**.
+Este programa extrae la siguiente informacion del _archivo data/afluencia-de-areas-recreativas-2024.csv_ con el siguiente formato:
 
 | Zona   | Toponimia             | Latitud          | Longitud           | Tipo de Actividad         | Fecha de Inicio       | Fecha de Fin         | Cantidad | Unidad   |
 |--------|-----------------------|------------------|--------------------|--------------------------|-----------------------|----------------------|----------|----------|
 | Arafo  | ORTICOSA (Camp.)      | 28.38251660028622| -16.446995416088964| Campamento, Aula, Centro | 2024-01-20T11:00:00   | 2024-01-21T16:00:00  | 20       | PERSONA  |
 
 
-Esta información se procesa en Python y se publica en Kafka en el topic 'TenerifeAreasRecreativas'.
+Esta información se procesa en el programa de Python, se agrupa por variables y se publica en Kafka en el topic _TenerifeAreasRecreativas_.
 ```
 python3 tenerife.py
 ```
 
 ### ***Practica 7: Producir un stream de mensajes utilizando un historico de movielens*** ###
 
-Para esta practica se va a utilizar un dataset mucho mas grande que el anterior de Tenerife. Este dataset se va a ir leyendo poco a poco y a su vez paralelamente se van a ir publicando los mensajes en kafka.
+Para esta practica se va a utilizar un dataset mucho mas grande que el anterior de Tenerife. 
+Este dataset se va a ir leyendo poco a poco (dada la magnitud: 100.836 lineas tiene el archivo _apache-kafka/scripts/ETL_practical_example/data/movielensratings.csv_ ) y a su vez paralelamente se van a ir _stremeando_ los mensajes en kafka.
 ```
 python3 movies_stream_producer.py
 ```
 Podemos ir viendo como en kafka se van publicando poco a poco más mensajes en un topic recién creado llamado 'ratings'.
 
-### ***Practica 8: Consumir un stream de mensajes y transformarlo con Kafka-Streams*** ###
+### ***Practica 8: Consumir un stream de mensajes y procesar los datos en tiempo real*** ###
 
-Por último, vamos a crear un consumidor del topic recientemente creado (ratings), que analiza el contenido publicado y categoriza cada pelicula como:
+Por último, vamos a crear un consumidor del topic recientemente creado (ratings), que procesa el contenido publicado en él y genera nuevos datos:
 - low_ratings
 - medium_ratings
 - high_ratings
 
-Para ejecutarlo unicamente en una consola nueva:
+Para ejecutarlo _unicamente_ es necesario abrir una consola nueva y:
 ```
+cd apache-kafka/scripts/ETL_practical_example
 python3 movies_stream_producer.py
 ```
 
-Ahora podemos comprobar en la UI como se van procesando los datos de las valoraciones de las peliculas.
+Ahora podemos comprobar en el frontal web como se van procesando los datos de las valoraciones de las peliculas.
 
 ### ***Practica 9: Realizar la practica 7 con el dataset de libros de amazon*** ###
 
-En la carpeta data está el archivo amazon_books.csv con el que, si sobra tiempo, construiremos lo mismo que previamente.
+En la carpeta data está el archivo amazon_books.csv con el que, si sobra tiempo, construiremos lo mismo que previamente hemos hecho con movielens.
 
 
