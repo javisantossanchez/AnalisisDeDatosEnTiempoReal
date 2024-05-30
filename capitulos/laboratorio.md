@@ -24,15 +24,7 @@ analisisdedatosentiemporeal
 │ │ ├── ETL practical example (carpeta que contiene los ejercicios de extracción y publicación de eventos en kafka)
 │ │ └── kafka-producers-and-consumers (carpeta que contiene las primeras publicaciones/consumiciones de eventos con kafka)
 │ │ ├── instalardependencias.sh (script que instala las dependencias del laboratorio)
-│ │ └── utils.py
-│ └── module2
-│ ├── init.py
-│ └── helpers.py
-├── tests
-│ ├── init.py
-│ ├── test_main.py
-│ └── module1
-│ ├── init.py
+
 ```
 Practica 1: Despliegue de kafka con un broker utilizando docker-compose
 
