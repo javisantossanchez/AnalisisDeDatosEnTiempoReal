@@ -5,7 +5,7 @@ Antes de comenzar el laboratorio, es imprescindible tener instalado las tecnolog
 Para ello, se proporciona el script de la carpeta scripts/instalardependencias.sh, el cual se encarga de lo siguiente:
 
 Instalar Docker, docker-compose, microk8s y las dependencias de python:
--  kafka-python
+- kafka-python
 - confluent-kafka
 - argparse (normalmente debería estar instalado)
     
@@ -122,9 +122,11 @@ sudo microk8s kubectl get node -o wide
 
 ### ***Practica 5: Producir mensajes en K8***###
 
-Ahora, nos dirigimos a: apache-kafka/scripts/kafka-producers-and-consumers
-Antes de ejecutar el productor sobre el cluster de Kubernetes, debemos actualizar la IP en el encabezado del programa: k8-kafka-producers.py
-Lo importante es apreciar las diferencias del despliegue subyacente (docker-kubernetes)
+Ahora, nos dirigimos a: apache-kafka/scripts/kafka-producers-and-consumers.
+
+Antes de ejecutar el productor sobre el cluster de Kubernetes, debemos actualizar la IP en el encabezado del programa: k8-kafka-producers.py.
+
+Lo importante es apreciar las diferencias del despliegue subyacente (docker-kubernetes).
 
 ```
 python3 k8-kafka-producers.py etsisi_kubernetes "Mi primer mensaje a Kubernetes"
@@ -134,7 +136,9 @@ Message delivered to etsisi_kubernetes [0]
 Practica 6: Extraer datos historicos de un archivo csv y publicarlos en kafka
 
 Nos dirigimos a: apache-kafka/scripts/ETL_practical_example
+
 El primer caso de uso es el programa tenerife.py.
+
 Este programa extrae la siguiente informacion del archivo data/afluencia-de-areas-recreativas-2024.csv con el siguiente formato:
 
 | Zona   | Toponimia             | Latitud          | Longitud           | Tipo de Actividad         | Fecha de Inicio       | Fecha de Fin         | Cantidad | Unidad   |
@@ -146,5 +150,32 @@ Esta información se procesa en Python y se publica en Kafka en el topic 'Teneri
 ```
 python3 tenerife.py
 ```
+
+### ***Practica 6: Producir un stream de mensajes utilizando un historico de movielens***###
+
+Para esta practica se va a utilizar un dataset mucho mas grande que el anterior de Tenerife. Este dataset se va a ir leyendo poco a poco y a su vez paralelamente se van a ir publicando los mensajes en kafka.
+```
+python3 movies_stream_producer.py
+```
+Podemos ir viendo como en kafka se van publicando poco a poco más mensajes en un topic recién creado llamado 'ratings'.
+
+### ***Practica 7: Consumir un stream de mensajes y transformarlo con Kafka-Streams***###
+
+Por último, vamos a crear un consumidor del topic recientemente creado (ratings), que analiza el contenido publicado y categoriza cada pelicula como:
+- low_ratings
+- medium_ratings
+- high_ratings
+
+Para ejecutarlo unicamente en una consola nueva:
+```
+python3 movies_stream_producer.py
+```
+
+Ahora podemos comprobar en la UI como se van procesando los datos de las valoraciones de las peliculas.
+
+### ***Practica 8: Realizar la practica 7 con el dataset de libros de amazon***###
+
+En la carpeta data está el archivo amazon_books.csv con el que, si sobra tiempo, construiremos lo mismo que previamente.
+
 
 
