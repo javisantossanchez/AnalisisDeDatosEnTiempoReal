@@ -93,3 +93,51 @@ Ahora vamos a crear un consumidor que apunte al mismo topic que hemos creado pre
 ```````
 python3 kafka-consumer.py etsisi
 ```````
+
+Practica 3.5 (opcional): Producir mensajes con Java
+Esta practica se deja a decisión del alumno. El codigo está preparado y automatizado.
+
+Practica 4: Desplegar kafka utilizando microk8s:
+
+cd apache-kafka/k8s-deployment
+
+En esa carpeta tenemos todos los .yaml que definen la arquitectura a desplegar, junto con dos scripts:
+    1- startcluster.sh: se encarga de levantar en orden los pods
+    2- cleanup_kafka.sh: elimina todos los pods corriendo (ojo, TODOS, cuidado si teneis otros pods vuestros corriendo)
+Para levantarlo, unicamente tenemos que ejecutar el codigo:
+```
+sudo ./startcluster.sh
+
+#Una vez levantado, debemos obtener la IP en la cual se ha desplegado kubernetes con:
+sudo microk8s kubectl get node -o wide
+
+#Posteriormente, podemos acceder a: http://{k8_ip}:30082 y ver que la UI se encuentra desplegada
+```
+
+Practica 5: Producir mensajes en K8
+
+Ahora, nos dirigimos a: apache-kafka/scripts/kafka-producers-and-consumers
+Antes de ejecutar el productor sobre el cluster de Kubernetes, debemos actualizar la IP en el encabezado del programa: k8-kafka-producers.py
+Lo importante es apreciar las diferencias del despliegue subyacente (docker-kubernetes)
+
+```
+python3 k8-kafka-producers.py etsisi_kubernetes "Mi primer mensaje a Kubernetes"
+Message delivered to etsisi_kubernetes [0]
+```
+
+Practica 6: Extraer datos historicos de un archivo csv y publicarlos en kafka
+
+Nos dirigimos a: apache-kafka/scripts/ETL_practical_example
+El primer caso de uso es el programa tenerife.py.
+Este programa extrae la siguiente informacion del archivo data/afluencia-de-areas-recreativas-2024.csv con el siguiente formato:
+
+| Zona  | Toponimia   | Latitud | Longitud | Tipo de Actividad | Fecha de Inicio | Fecha de Fin | Cantidad | Unidad |
+|------------------------|-----------------------------------------------------------|------------------------------------------------------------|
+Arafo| ORTICOSA (Camp.) | 28.38251660028622 | -16.446995416088964 | "Campamento, Aula, Centro" | 2024-01-20T11:00:00 | 2024-01-21T16:00:00 | 20 | PERSONA
+
+Esta información se procesa en Python y se publica en Kafka en el topic 'TenerifeAreasRecreativas'.
+```
+python3 tenerife.py
+```
+
+
