@@ -21,7 +21,7 @@ Y toda esta funcionalidad se proporciona de manera distribuida, altamente escala
 Un evento registra el hecho de que "algo sucedió" en el mundo o en tu negocio. También se llama registro o mensaje en la documentación. Cuando se lee o se escribe datos en Kafka, se hace en forma de eventos. Conceptualmente, un evento tiene una clave, un valor, una marca de tiempo y metadatos opcionales. Un ejemplo de evento:
 
 - Clave del evento: "Javier"
-- Valor del evento: "Hizo un pago de $200 a Dani"
+- Valor del evento: "Hizo un pago de $200 a Daniel"
 - Marca de tiempo del evento: "25 de junio de 2020 a las 2:06 p.m."
 
 Los productores son aquellas aplicaciones cliente que publican (escriben) eventos en Kafka, y los consumidores son aquellos que se suscriben a (leen y procesan) estos eventos. En Kafka, los productores y consumidores están completamente desacoplados y son agnósticos entre sí, lo cual es un elemento clave de diseño para lograr la alta escalabilidad por la que Kafka es conocido. Los productores nunca necesitan esperar a los consumidores. Kafka ofrece varias garantías, como la capacidad de procesar todos los eventos exactamente una vez.
