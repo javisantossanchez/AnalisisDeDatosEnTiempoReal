@@ -103,7 +103,7 @@ python3 kafka-consumer.py etsisi
 Practica 3.5 (opcional): Producir mensajes con Java
 Esta practica se deja a decisión del alumno. El codigo está preparado y automatizado.
 
-### ***Practica 4: Desplegar kafka utilizando microk8s:***###
+### ***Practica 4: Desplegar kafka utilizando microk8s:*** ###
 
 cd apache-kafka/k8s-deployment
 
@@ -120,7 +120,7 @@ sudo microk8s kubectl get node -o wide
 #Posteriormente, podemos acceder a: http://{k8_ip}:30082 y ver que la UI se encuentra desplegada
 ```
 
-### ***Practica 5: Producir mensajes en K8***###
+### ***Practica 5: Producir mensajes en K8*** ###
 
 Ahora, nos dirigimos a: apache-kafka/scripts/kafka-producers-and-consumers.
 
@@ -133,7 +133,7 @@ python3 k8-kafka-producers.py etsisi_kubernetes "Mi primer mensaje a Kubernetes"
 Message delivered to etsisi_kubernetes [0]
 ```
 
-Practica 6: Extraer datos historicos de un archivo csv y publicarlos en kafka
+### ***Practica 6: Extraer datos historicos de un archivo csv y publicarlos en kafka*** ###
 
 Nos dirigimos a: apache-kafka/scripts/ETL_practical_example
 
@@ -151,7 +151,7 @@ Esta información se procesa en Python y se publica en Kafka en el topic 'Teneri
 python3 tenerife.py
 ```
 
-### ***Practica 6: Producir un stream de mensajes utilizando un historico de movielens***###
+### ***Practica 7: Producir un stream de mensajes utilizando un historico de movielens*** ###
 
 Para esta practica se va a utilizar un dataset mucho mas grande que el anterior de Tenerife. Este dataset se va a ir leyendo poco a poco y a su vez paralelamente se van a ir publicando los mensajes en kafka.
 ```
@@ -159,7 +159,7 @@ python3 movies_stream_producer.py
 ```
 Podemos ir viendo como en kafka se van publicando poco a poco más mensajes en un topic recién creado llamado 'ratings'.
 
-### ***Practica 7: Consumir un stream de mensajes y transformarlo con Kafka-Streams***###
+### ***Practica 8: Consumir un stream de mensajes y transformarlo con Kafka-Streams*** ###
 
 Por último, vamos a crear un consumidor del topic recientemente creado (ratings), que analiza el contenido publicado y categoriza cada pelicula como:
 - low_ratings
@@ -173,9 +173,8 @@ python3 movies_stream_producer.py
 
 Ahora podemos comprobar en la UI como se van procesando los datos de las valoraciones de las peliculas.
 
-### ***Practica 8: Realizar la practica 7 con el dataset de libros de amazon***###
+### ***Practica 9: Realizar la practica 7 con el dataset de libros de amazon*** ###
 
 En la carpeta data está el archivo amazon_books.csv con el que, si sobra tiempo, construiremos lo mismo que previamente.
-
 
 
