@@ -92,6 +92,7 @@ Un ejemplo de ejecución es:
 ```````
 python3 kafka-producers.py  etsisi "Myfirstmessage"
                             #topic #mensaje
+
 Message delivered to etsisi [0]
                      #topic #partition assigned
 ```````
