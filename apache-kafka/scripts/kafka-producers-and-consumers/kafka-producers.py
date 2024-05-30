@@ -26,11 +26,11 @@ class KafkaProducer:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Send a message to a Kafka topic.')
+    parser.add_argument('topic', type=str, help='The name of the topic')
     parser.add_argument('message', type=str, help='The message to send')
     args = parser.parse_args()
 
     brokers = "kafka1:9092,kafka2:9092,kafka3:9092,kafka4:9092"
-    topic = "temperatura"
 
     kafka_producer = KafkaProducer(brokers)
-    kafka_producer.publish(topic, args.message)
+    kafka_producer.publish(args.topic, args.message)

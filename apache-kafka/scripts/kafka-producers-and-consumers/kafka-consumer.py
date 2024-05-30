@@ -1,6 +1,8 @@
 from confluent_kafka import Consumer, KafkaException, KafkaError
+import argparse
 
-def kafka_consumer_example(brokers, group_id, topics):
+
+def kafka_consumer(brokers, group_id, topics):
     # Configuración del consumidor
     conf = {
         'bootstrap.servers': brokers,
@@ -37,8 +39,13 @@ def kafka_consumer_example(brokers, group_id, topics):
         consumer.close()
 
 if __name__ == "__main__":
-    brokers = "172.31.216.72:30083"
-    group_id = "ETL_group"
-    topics = ["ETL"]
+    parser = argparse.ArgumentParser(description='Consume messages to a Kafka topic.')
 
-    kafka_consumer_example(brokers, group_id, topics)
+    brokers = "kafka1:9092,kafka2:9092,kafka3:9092,kafka4:9092"
+    group_id = "ETSISI_CONSUMER"
+    parser.add_argument('topic', type=str, help='The name of the topic')
+    args = parser.parse_args()
+
+    print(args.topic)
+    topics=[args.topic]
+    kafka_consumer(brokers, group_id, topics)

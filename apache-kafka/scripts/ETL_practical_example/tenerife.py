@@ -2,6 +2,9 @@ import csv
 from confluent_kafka import Producer
 import json
 
+
+kubernetes_worker_node_IP = "172.31.216.72"
+
 def leer_csv(ruta_archivo):
     """Lee un archivo CSV y devuelve los datos en una lista de diccionarios."""
     datos = []
@@ -37,7 +40,7 @@ mostrar_datos(datos)
 
 # Configuración del productor de Kafka
 conf = {
-    'bootstrap.servers': '172.31.216.72:30083',  # Cambia esto por la dirección de tu servidor Kafka
+    'bootstrap.servers': f"{kubernetes_worker_node_IP}:30083,{kubernetes_worker_node_IP}:30084,{kubernetes_worker_node_IP}:30085,{kubernetes_worker_node_IP}:30086",  # Ajusta esto a la dirección de tu servidor Kafka
 }
 
 # Crear una instancia del productor

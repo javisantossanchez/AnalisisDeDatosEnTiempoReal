@@ -1,14 +1,26 @@
 from kafka import KafkaConsumer, KafkaProducer
 import json
 
+kubernetes_worker_node_IP = "172.31.216.72"
+
 def process_stream():
     consumer = KafkaConsumer(
         'ratings',
-        bootstrap_servers='172.31.216.72:30083',
-        value_deserializer=lambda m: json.loads(m.decode('utf-8'))
+        bootstrap_servers=[
+                    f"{kubernetes_worker_node_IP}:30083",
+                    f"{kubernetes_worker_node_IP}:30084",
+                    f"{kubernetes_worker_node_IP}:30084",
+                    f"{kubernetes_worker_node_IP}:30086"            
+                            ],                    
+        value_serializer=lambda v: json.dumps(v).encode('utf-8')
     )
     producer = KafkaProducer(
-        bootstrap_servers='172.31.216.72:30083',
+        bootstrap_servers=[
+                    f"{kubernetes_worker_node_IP}:30083",
+                    f"{kubernetes_worker_node_IP}:30084",
+                    f"{kubernetes_worker_node_IP}:30084",
+                    f"{kubernetes_worker_node_IP}:30086"            
+                            ],                    
         value_serializer=lambda v: json.dumps(v).encode('utf-8')
     )
 
