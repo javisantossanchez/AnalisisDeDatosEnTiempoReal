@@ -5,9 +5,9 @@ Antes de comenzar el laboratorio, es imprescindible tener instalado las tecnolog
 Para ello, se proporciona el script de la carpeta scripts/instalardependencias.sh, el cual se encarga de lo siguiente:
 
 Instalar Docker, docker-compose, microk8s y las dependencias de python:
-    - kafka-python
-    - confluent-kafka
-    - argparse (normalmente debería estar instalado)
+-  kafka-python
+- confluent-kafka
+- argparse (normalmente debería estar instalado)
     
 Podemos comprobar la instalación con:
 ```
@@ -46,7 +46,7 @@ sudo docker-compose up
 #Para comprobar que todos esta bien:
 sudo docker ps
 
-#Si abrimos nuestro explorador en: http://localhost:8080 deberiamos ver nuestro cluster de kafka
+#Si abrimos nuestro explorador en: http://localhost:8080 deberiamos ver nuestra instancia de kafka
 ```````
 
 ### ***Practica 2: Despliegue de kafka con cuatro brokers utilizando docker-compose*** ###
