@@ -14,11 +14,11 @@ command -v docker-compose  # para docker-compose, docker para Docker y
                            # microk8s para probar la instalación de k8s 
 ```
 
-La jerarquia de las carpetas es:
+Para entender y poder utilizar el proyecto, es necesario entender la jerarquia de las carpetas que lo componen:
 ```
 analisisdedatosentiemporeal
 ├── README.md
-├── capitulos (Aqui se encuentra el texto de la exposicion)
+├── capitulos (Aqui se encuentran los capitulos de la exposicion)
 ├── .gitignore
 └── apache-kafka 
   ├── docker-compose-deployment
@@ -29,8 +29,8 @@ analisisdedatosentiemporeal
     ├── ETL practical example (carpeta que contiene los ejercicios de extracción y publicación de eventos en kafka)
     └── kafka-producers-and-consumers (carpeta que contiene las primeras publicaciones/consumiciones de eventos con kafka)
     └── instalardependencias.sh (script que instala las dependencias del laboratorio)
-
 ```
+
 ### ***Practica 1: Despliegue de kafka con un broker utilizando docker-compose.*** ###
 
 ```````
