@@ -8,15 +8,6 @@ En el contexto de patrones de diseño, la comunicación entre componentes puede 
 - **Asíncrona**: Los componentes se comunican sin esperar una respuesta inmediata. Esto es común en sistemas donde los componentes necesitan operar de manera independiente para mejorar el rendimiento y la escalabilidad.
 - **Síncrona**: Los componentes esperan una respuesta inmediata antes de continuar. Esto es útil en situaciones donde se necesita una confirmación instantánea de que una operación se ha completado.
 
-### ***Características Comunes***
-
-Ambos patrones de diseño, Colas de Mensajes y Publicación-Subscripción, comparten varias características clave:
-
-- **Desacoplamiento**: Facilitan el desarrollo y mantenimiento de sistemas complejos al reducir las dependencias directas entre componentes.
-- **Escalabilidad**: Permiten distribuir la carga de trabajo y manejar un gran número de mensajes y suscriptores.
-- **Fiabilidad**: Implementan mecanismos para asegurar que los mensajes no se pierdan, como almacenamiento persistente y confirmaciones de recepción.
-- **Flexibilidad**: Facilitan la adición de nuevos componentes sin cambiar la lógica existente.
-
 ### ***Colas de Mensajes***
 
 Las colas de mensajes permiten a las aplicaciones comunicarse de manera asincrónica y desacoplada. Este patrón se utiliza comúnmente en sistemas distribuidos para garantizar que los mensajes se entreguen de manera confiable.
@@ -36,6 +27,15 @@ El modelo pub-sub permite la comunicación uno-a-muchos y muchos-a-muchos, donde
 1. **Publicadores y Suscriptores**: Los publicadores envían mensajes a un "broker" o "bus de mensajes", y los suscriptores se registran para recibir mensajes de interés.
 2. **Broker**: Gestiona la distribución de mensajes a los suscriptores interesados.
 3. **Asincronía y Sincronía**: Generalmente asincrónico, pero puede soportar interacciones síncronas cuando se necesita una respuesta inmediata.
+
+### ***Características Comunes***
+
+Ambos patrones de diseño, Colas de Mensajes y Publicación-Subscripción, comparten varias características clave:
+
+- **Desacoplamiento**: Facilitan el desarrollo y mantenimiento de sistemas complejos al reducir las dependencias directas entre componentes.
+- **Escalabilidad**: Permiten distribuir la carga de trabajo y manejar un gran número de mensajes y suscriptores.
+- **Fiabilidad**: Implementan mecanismos para asegurar que los mensajes no se pierdan, como almacenamiento persistente y confirmaciones de recepción.
+- **Flexibilidad**: Facilitan la adición de nuevos componentes sin cambiar la lógica existente.
 
 ### ***Comparación entre Colas de Mensajes y Publicación-Subscripción***
 
