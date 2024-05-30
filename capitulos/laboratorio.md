@@ -26,7 +26,7 @@ analisisdedatosentiemporeal
 │ │ ├── instalardependencias.sh (script que instala las dependencias del laboratorio)
 
 ```
-Practica 1: Despliegue de kafka con un broker utilizando docker-compose.
+### ***Practica 1: Despliegue de kafka con un broker utilizando docker-compose.*** ###
 
 ```````
 #Desde la raiz de nuestro proyecto Git
@@ -44,7 +44,7 @@ sudo docker ps
 #Si abrimos nuestro explorador en: http://localhost:8080 deberiamos ver nuestro cluster de kafka
 ```````
 
-Practica 1: Despliegue de kafka con un broker utilizando docker-compose
+### ***Practica 2: Despliegue de kafka con cuatro brokers utilizando docker-compose*** ###
 
 Antes de nada, asegurarnos que el contenedor del despligue anterior no continua ejecutandose:
 ```````
@@ -88,7 +88,8 @@ Message delivered to etsisi [0]
 Podemos comprobar en nuestra UI (o a través de comandos) el estado de kafka (y publicar nuevos mensajes a modo de test).
 
 
-Practica 3: Interaccion con kafka a través de un consumidor con Python
+### ***Practica 3: Interaccion con kafka a través de un consumidor con Python*** ###
+
 Ahora vamos a crear un consumidor que apunte al mismo topic que hemos creado previamente.
 ```````
 python3 kafka-consumer.py etsisi
@@ -97,7 +98,7 @@ python3 kafka-consumer.py etsisi
 Practica 3.5 (opcional): Producir mensajes con Java
 Esta practica se deja a decisión del alumno. El codigo está preparado y automatizado.
 
-Practica 4: Desplegar kafka utilizando microk8s:
+### ***Practica 4: Desplegar kafka utilizando microk8s:***###
 
 cd apache-kafka/k8s-deployment
 
@@ -114,7 +115,7 @@ sudo microk8s kubectl get node -o wide
 #Posteriormente, podemos acceder a: http://{k8_ip}:30082 y ver que la UI se encuentra desplegada
 ```
 
-Practica 5: Producir mensajes en K8
+### ***Practica 5: Producir mensajes en K8***###
 
 Ahora, nos dirigimos a: apache-kafka/scripts/kafka-producers-and-consumers
 Antes de ejecutar el productor sobre el cluster de Kubernetes, debemos actualizar la IP en el encabezado del programa: k8-kafka-producers.py
