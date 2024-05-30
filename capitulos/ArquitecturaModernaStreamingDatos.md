@@ -28,6 +28,7 @@ Por otro lado, los datos en streaming se refieren a los datos que se generan con
 - **Procesamiento de flujo:** Los datos en streaming se procesan sobre la marcha, a menudo tan pronto como llegan.
 - **Conocimientos en tiempo real:** Dado que el procesamiento ocurre en tiempo real, los conocimientos derivados de los datos en streaming son inmediatos, lo que permite acciones rápidas.
 - **Utilizados para acciones inmediatas:** Los datos en streaming a menudo se utilizan en escenarios que requieren acciones inmediatas, como el monitoreo de sistemas, el análisis en tiempo real y las recomendaciones instantáneas.
+  
 ![streamprocessor](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/85ad20c3-ef61-4e2b-b668-c859a3ce13b9)
 
 
