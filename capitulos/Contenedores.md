@@ -27,11 +27,11 @@ Los contenedores poseen las siguientes características clave:
 - Portabilidad: A la hora de ejecutarse, cada contenedor carga una imagen la cual que contiene toda la información necesaria para su ejecución: sistema operativo, variables de entorno, sistema de archivos, aplicaciones, etc.Esta implementación permite empaquetar aplicaciones en estas imágenes, hablitando un despliegue rápido, distribuido y centrado en microservicios, diferenciándose frente a aplicaciones más tradicionales donde todos los servicios son ejecutados dentro de una misma máquina.
 
 ### ***Docker-compose***
-Junto a Docker, encontramos también el proyecto complementario "docker-compose", una herramienta que permite definir y desplegar multitud de estoscontenedores a través de un (o varios) fichero .yam de configuración que poseatodos los parámetros necesarios para desplegar una serie de servicios que se ajusten a una definición previa sin necesidad de hacer uso de numerosas máquinas físicas.
+Junto a Docker, encontramos también el proyecto complementario **docker-compose**, una herramienta que permite definir y desplegar multitud de estoscontenedores a través de un (o varios) fichero .yam de configuración que poseatodos los parámetros necesarios para desplegar una serie de servicios que se ajusten a una definición previa sin necesidad de hacer uso de numerosas máquinas físicas.
 Los contenedores de Docker permiten el aislamiento de los miembros y la creación de una red propia dedicando poca memoria y utilizando el menor almacenamiento posible gracias a la ligereza de las imágenes utilizadas, facilitandoel aprovisionamiento de máquinas y la simulación de un entorno real.
 
 <p align="center">
-![docker-compose](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/8d9ccd6b-37aa-4ae5-88bc-e065eef5dee7)
+<img src="https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/8d9ccd6b-37aa-4ae5-88bc-e065eef5dee7" \>
 <p align="center">
 
 Este archivo nos permite definir de qué manera queremos inicializar nuestro contenedor:
