@@ -68,8 +68,6 @@ Los beneficios de EDA incluyen escalabilidad, acoplamiento flexible y desarrollo
 
 Al adoptar la arquitectura basada en eventos, los sistemas ganan la capacidad de reaccionar de manera asincrónica e independiente a los eventos, haciéndolos escalables. La arquitectura también maneja desafíos de consistencia de datos usando técnicas como versionado de eventos, idempotencia y acciones de compensación.
 
-En general, la arquitectura basada en eventos proporciona flexibilidad, escalabilidad y resiliencia, haciéndola adecuada para aplicaciones modernas con flujos de trabajo complejos, procesamiento de eventos en tiempo real e integraciones basadas en eventos.
-
 Un ejemplo común es una aplicación basada en interacción gráfica, como un videojuego: la aplicación trabaja en respuesta a los clics del ratón del usuario o las selecciones del menú. Esta analogía puede extenderse a funciones a nivel de sistema para implementar lógica empresarial y flujos de trabajo, mucho más allá de lo que un usuario final podría ver. La programación basada en eventos es a menudo el medio por el cual un componente determinado soporta su rol en una arquitectura basada en microservicios.
 
 Los componentes individuales que interactúan con el sistema envían eventos, que representan actividad o solicitudes a nivel de sistema o negocio; esos eventos son recopilados por la plataforma de procesamiento de eventos, para su filtrado, aumento y distribución a otros componentes dependientes o interesados. La comunicación entre estos componentes se maneja a través de microservicios anunciados por cada componente. Dentro de los componentes, los microservicios se implementan utilizando un modelo de programación basado en eventos.
