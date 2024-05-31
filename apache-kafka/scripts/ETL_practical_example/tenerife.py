@@ -54,7 +54,7 @@ def delivery_report(err, msg):
         print(f"Mensaje entregado a {msg.topic()} [{msg.partition()}]")
 
 # Publicar cada fila de datos en el topic
-topic = 'ETL'  # Cambia esto por el nombre de tu topic
+topic = 'TenerifeAreasRecreativas'  # Cambia esto por el nombre de tu topic
 
 for fila in datos:
     # Convertir la fila a formato JSON

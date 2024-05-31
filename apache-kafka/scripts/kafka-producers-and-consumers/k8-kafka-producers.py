@@ -1,6 +1,9 @@
 from confluent_kafka import Producer
 import argparse
 
+
+kubernetes_worker_node_IP = "172.31.216.72"
+
 class KafkaProducer:
     def __init__(self, brokers):
         self.producer = Producer({'bootstrap.servers': brokers})
@@ -26,12 +29,14 @@ class KafkaProducer:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Send a message to a Kafka topic.')
+    parser.add_argument('topic', type=str, help='The name of the topic')
+
     parser.add_argument('message', type=str, help='The message to send')
     args = parser.parse_args()
 
     
-    brokers = "172.31.216.72:30083"
-    topic = "ETL"
+    brokers = f"{kubernetes_worker_node_IP}:30083,{kubernetes_worker_node_IP}:30084,{kubernetes_worker_node_IP}:30085,{kubernetes_worker_node_IP}:30086"
+    topic = args.topic
 
     kafka_producer = KafkaProducer(brokers)
 
