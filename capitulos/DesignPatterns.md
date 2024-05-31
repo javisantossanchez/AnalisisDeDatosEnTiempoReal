@@ -40,16 +40,7 @@ Ambos patrones de diseño, Colas de Mensajes y Publicación-Subscripción, compa
 - **Fiabilidad**: Implementan mecanismos para asegurar que los mensajes no se pierdan, como almacenamiento persistente y confirmaciones de recepción.
 - **Flexibilidad**: Facilitan la adición de nuevos componentes sin cambiar la lógica existente.
 
-### ***Comparación entre Colas de Mensajes y Publicación-Subscripción***
-
-| Aspecto                | Colas de Mensajes                                         | Publicación-Subscripción                                   |
-|------------------------|-----------------------------------------------------------|------------------------------------------------------------|
-| Tipo de Comunicación   | Punto a punto (uno a uno)                                 | Uno a muchos o muchos a muchos                             |
-| Entrega de Mensajes    | Mensajes se entregan a un solo consumidor                 | Mensajes se entregan a todos los suscriptores interesados   |
-| Uso Común              | Procesamiento de tareas, integración de sistemas          | Notificaciones en tiempo real, actualización de datos en tiempo real |
-| Sincronía              | Asíncrono                                                 | Asíncrono, pero puede soportar sincronía                   |
-
-### ***Casos de Uso Comunes***
+### ***Casos de Uso***
 
 - **Colas de Mensajes**: 
   - Procesamiento de tareas en segundo plano
@@ -63,11 +54,22 @@ Ambos patrones de diseño, Colas de Mensajes y Publicación-Subscripción, compa
 
 
 
+### ***Comparación entre Colas de Mensajes y Publicación-Subscripción***
+
+| Aspecto                | Colas de Mensajes                                         | Publicación-Subscripción                                   |
+|------------------------|-----------------------------------------------------------|------------------------------------------------------------|
+| Tipo de Comunicación   | Punto a punto (uno a uno)                                 | Uno a muchos o muchos a muchos                             |
+| Entrega de Mensajes    | Mensajes se entregan a un solo consumidor                 | Mensajes se entregan a todos los suscriptores interesados   |
+| Uso Común              | Procesamiento de tareas, integración de sistemas          | Notificaciones en tiempo real, actualización de datos en tiempo real |
+| Sincronía              | Asíncrono                                                 | Asíncrono, pero puede soportar sincronía                   |
+
+<p align="center">
+<img src="https://github.com/javisantossanchez/BigDataEnTiempoReal/assets/47392657/05393391-066d-4c70-8949-7d65672e3c04" style="align:center;" \>
+</p>
+
 ### ***Funcionamiento de la Arquitectura Basada en Eventos***
 
 La arquitectura basada en eventos (**Event Driven Architecture** o **EDA**, por sus siglas en inglés) es un patrón de diseño de software que permite la construcción de sistemas escalables y acoplados de forma flexible. Esta arquitectura está basada en _los eventos_, que representan ocurrencias o cambios en el sistema, impulsan el flujo de los datos. Son generados por diversas fuentes, publicados en un bus de eventos o en un intermediario de mensajes, y consumidos de manera asincrónica por componentes interesados. Este enfoque promueve flexibilidad, escalabilidad y resiliencia.
-
-Los beneficios de EDA incluyen escalabilidad, acoplamiento flexible y desarrollo y despliegue independiente de los componentes del sistema. Maneja flujos de trabajo complejos, integraciones basadas en eventos y procesamiento de eventos en tiempo real.
 
 Al adoptar la arquitectura basada en eventos, los sistemas ganan la capacidad de reaccionar de manera independiente a los eventos, haciéndolos escalables y adaptables a más necesidades de negocio. La arquitectura también maneja desafíos de consistencia de datos usando técnicas como versionado de eventos, idempotencia y acciones de compensación.
 
@@ -75,7 +77,7 @@ Un ejemplo común es una aplicación basada en interacción gráfica, un videoju
 
 Los componentes individuales que interactúan con el sistema envían eventos, que representan actividad o solicitudes a nivel de sistema o negocio; esos eventos son recopilados por la plataforma de procesamiento de eventos, para su filtrado, aumento y distribución a otros componentes dependientes o interesados. La comunicación entre estos componentes se maneja a través de microservicios anunciados por cada componente. Dentro de los componentes, los microservicios se implementan utilizando un modelo de programación basado en eventos.
 
-EDA tiene ventajas como la mejora de la capacidad de respuesta, flexibilidad y extensibilidad, pero introduce complejidades como la sobrecarga operativa, los desafíos de ordenación de eventos y la necesidad de un modelado y gestión efectivos de eventos.
+EDA tiene ventajas como la mejora de la capacidad de respuesta, el manejode flujos de trabajo complejos, cuenta con integraciones basadas en eventos y procesamiento de eventos en tiempo real. Además aporta flexibilidad y extensibilidad, pero introduce complejidades como la sobrecarga operativa, los desafíos de ordenación de eventos y la necesidad de un modelado y gestión efectivos de eventos.
 
 
 
@@ -96,3 +98,5 @@ La programación basada en eventos es un paradigma a nivel de código de softwar
 | Los eventos se activan cuando se reciben flujos de datos, permitiendo análisis continuo y generación de insights, como monitorear el tráfico web o detectar actividades fraudulentas. | Cuando se completa una tarea o se alcanza un hito, se activan eventos para avanzar el flujo de trabajo, asegurando colaboración fluida y automatización de procesos. | Se generan eventos cuando los sensores detectan movimiento, cambios de temperatura o aperturas de puertas, activando luces u otros dispositivos. | Los eventos se utilizan para comunicar entre diferentes microservicios, permitiendo sistemas escalables y de acoplamiento suelto. | Los eventos se activan cuando los jugadores realizan acciones, como mover personajes o completar misiones, permitiendo interacción en tiempo real y sincronización del juego. |
 
 Aprovechando la mensajería asincrónica y los flujos de trabajo basados en eventos, EDA permite que los servicios reaccionen de forma autónoma a los eventos, promoviendo un acoplamiento flexible, escalabilidad y extensibilidad. Por otro lado, los microservicios son un paradigma de desarrollo de software que estructura las aplicaciones como un conjunto de pequeños servicios autónomos, cada uno responsable de funcionalidades empresariales específicas. Estos servicios, típicamente desplegados en contenedores o máquinas virtuales ligeras, se comunican entre sí utilizando protocolos ligeros como HTTP, colas de mensajes o flujos de eventos. La combinación de EDA con microservicios permite la comunicación basada en eventos entre servicios, habilitando la propagación de eventos, el almacenamiento de estos y flujos de trabajo coreografiados u orquestados que responden a los determinados contextos. Este enfoque mejora la modularidad del sistema, la tolerancia a fallos y la escalabilidad, facilitando el desarrollo de sistemas complejos y distribuidos que pueden adaptarse y evolucionar de manera eficiente en entornos dinámicos.
+
+![edaarch](https://github.com/javisantossanchez/BigDataEnTiempoReal/assets/47392657/a9d9dd0b-c442-4dc6-845c-ecad7ccfb5d0)
