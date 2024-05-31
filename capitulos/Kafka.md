@@ -30,14 +30,51 @@ Los eventos se organizan y almacenan de manera duradera en **topics**. De manera
 
 Los topics están particionados, lo que significa que un tema se distribuye en varios "cubos" ubicados en diferentes brokers de Kafka. Esta distribución de tus datos es muy importante para la escalabilidad porque permite que las aplicaciones cliente lean y escriban datos desde/hacia muchos brokers al mismo tiempo. Cuando se publica un nuevo evento en un tema, en realidad se agrega a una de las particiones del tema. Los eventos con la misma clave de evento (por ejemplo, un ID de cliente o de vehículo) se escriben en la misma partición, y Kafka garantiza que cualquier consumidor de una partición de tema dada siempre leerá los eventos de esa partición en exactamente el mismo orden en que fueron escritos.
 
+<p align="center">
+  <img src="https://github.com/javisantossanchez/BigDataEnTiempoReal/assets/47392657/c0fa3739-ee55-42c1-ad14-9c16fbfcf7ad" style="width:65%" \>
+</p>
+<p align="center">
+  <em><strong>Topic particionado</strong></em> 
+</p>
 
-![topic_partitioned](https://github.com/javisantossanchez/BigDataEnTiempoReal/assets/47392657/c0fa3739-ee55-42c1-ad14-9c16fbfcf7ad)
 
 Para hacer que tus datos sean tolerantes a fallos y altamente disponibles, cada tema puede replicarse, incluso a través de regiones geográficas o centros de datos, de modo que siempre haya múltiples brokers que tengan una copia de los datos en caso de que algo salga mal, necesites hacer mantenimiento en los brokers, etc. Una configuración común en producción es un factor de replicación de 3, es decir, siempre habrá tres copias de tus datos. Esta replicación se realiza a nivel de particiones de tema.
 
-A continuación se presenta una arquitectura Lambda basada en Kafka para la ingestión de datos en al capa de velocidad implementada con Flink mientras soporta streaming de datos e integrando la capa histórica con Spark.
-![KappaArchitectureWithKafka](https://github.com/javisantossanchez/BigDataEnTiempoReal/assets/47392657/86380f8f-e2ed-4dd8-aec3-40d21c20c63b)
 
+
+
+### ***Broker en Kafka***
+
+Un broker en Kafka es un servidor que almacena datos y sirve a los clientes. Es una parte fundamental de la arquitectura de Kafka. Los brokers reciben datos de los productores, los almacenan de manera confiable en el disco y los sirven a los consumidores. Cada broker puede gestionar cientos de miles de particiones y millones de mensajes por segundo, garantizando la alta disponibilidad y la durabilidad de los datos.
+
+#### Funcionamiento
+
+1. **Recepción de datos:** Los productores envían mensajes a un broker, que los almacena en la partición correspondiente del tópico. Cada mensaje se asigna a una partición específica basada en una clave de partición o mediante un algoritmo de round-robin.
+2. **Almacenamiento:** Los brokers persisten los mensajes en disco y replican los datos en otros brokers para asegurar la durabilidad y tolerancia a fallos. Cada mensaje se guarda con un offset único que lo identifica dentro de su partición.
+3. **Servir a los consumidores:** Los consumidores leen los mensajes de las particiones de los tópicos desde los brokers. Kafka garantiza que los consumidores puedan leer los mensajes de manera eficiente y en orden, permitiendo a los consumidores mantener su posición (offset) en el flujo de datos.
+
+#### Acoplamiento en la arquitectura Kafka
+
+- **Cluster:** Un clúster de Kafka consiste en múltiples brokers trabajando juntos. Cada tópico se divide en varias particiones distribuidas entre los brokers, permitiendo la escalabilidad horizontal.
+- **Particiones:** Las particiones permiten la paralelización del procesamiento de datos. Cada partición es una secuencia ordenada de mensajes que los consumidores pueden leer de manera independiente. Esto permite que múltiples consumidores puedan leer de diferentes particiones en paralelo, aumentando la eficiencia y la capacidad de procesamiento.
+- **Replicación:** Para garantizar la durabilidad y alta disponibilidad, los datos de cada partición se replican en múltiples brokers. Cada partición tiene una réplica líder y varias réplicas seguidoras. Las réplicas seguidoras replican los datos del líder y pueden tomar el control en caso de fallo del líder.
+- **Liderazgo de particiones:** Cada partición tiene un líder broker que maneja todas las lecturas y escrituras para esa partición, mientras que los seguidores replican los datos del líder. Este liderazgo se gestiona mediante el protocolo de consenso de Kafka, asegurando que siempre haya un líder disponible para cada partición.
+- **Coordinación de Zookeeper:** Kafka utiliza Zookeeper para la gestión de la configuración del clúster, la selección de líderes de particiones y la gestión de la metadata. Zookeeper ayuda a mantener la coherencia y coordinación entre los brokers del clúster.
+
+#### Detalles adicionales
+
+- **Retención de mensajes:** Los brokers pueden configurarse para retener mensajes por un período de tiempo específico o hasta que se alcance un tamaño de almacenamiento determinado. Esto permite a los consumidores recuperar mensajes históricos, facilitando la re-procesamiento de datos si es necesario.
+- **Compresión y compactación:** Kafka soporta la compresión de mensajes para reducir el uso de espacio de almacenamiento y el tráfico de red. También soporta la compactación de logs, que permite mantener solo la última versión de un mensaje basado en su clave, útil para casos de uso como los registros de cambios.
+- **Monitoreo y métricas:** Los brokers emiten una amplia variedad de métricas sobre su desempeño y estado, incluyendo tasas de mensajes, latencias, y utilización de recursos. Estas métricas son esenciales para la monitorización y gestión proactiva del clúster.
+
+El broker en Kafka es esencial para garantizar la entrega de mensajes de alta disponibilidad, durabilidad y rendimiento dentro del clúster, permitiendo una infraestructura robusta para el procesamiento y transmisión de datos en tiempo real. La arquitectura distribuida y las capacidades de replicación y paralelización hacen de Kafka una plataforma poderosa para aplicaciones de streaming de datos y sistemas de mensajería escalables.
+
+<p align="center">
+    <img src="https://github.com/javisantossanchez/BigDataEnTiempoReal/assets/47392657/014508da-e8a5-4365-b38a-d9a1123d40cb" alt="Datos de un Broker"/>
+</p>
+<p align="center">
+  <em><strong>Broker de kafka:</strong></em> representación visual funcionamiento de brokers en Kafka.
+</p>
 
 ### ***Casos de Uso***
 
@@ -64,8 +101,13 @@ Muchas personas utilizan Kafka como un reemplazo para una solución de agregaci�
 Muchos usuarios de Kafka procesan datos en pipelines de procesamiento que consisten en múltiples etapas, donde los datos de entrada en bruto se consumen de los topics de Kafka y luego se agregan, enriquecen o transforman de alguna otra manera en nuevos topics para su posterior consumo o procesamiento posterior. Por ejemplo, un pipeline de procesamiento para recomendar artículos de noticias podría rastrear el contenido de artículos de feeds RSS y publicarlo en un tema de "artículos"; un procesamiento adicional podría normalizar o eliminar duplicados de este contenido y publicar el contenido de artículos depurado en un nuevo tema; una etapa final de procesamiento podría intentar recomendar este contenido a los usuarios. Tales pipelines de procesamiento crean gráficos de flujos de datos en tiempo real basados en los topics individuales. A partir de la versión 0.10.0.0, una biblioteca de procesamiento de flujos liviana pero poderosa llamada Kafka Streams está disponible en Apache Kafka para realizar dicho procesamiento de datos como se describe arriba. Aparte de Kafka Streams, otras herramientas de procesamiento de flujos de código abierto incluyen Apache Storm y Apache Samza.
 
 <p align="center">
-    <img src="https://github.com/javisantossanchez/BigDataEnTiempoReal/assets/47392657/014508da-e8a5-4365-b38a-d9a1123d40cb" alt="Datos de un Broker"/>
+  <img src="https://github.com/javisantossanchez/BigDataEnTiempoReal/assets/47392657/86380f8f-e2ed-4dd8-aec3-40d21c20c63b" style="width:75%" \>
 </p>
+<p align="center">
+  <em><strong>Kafka architecture:</strong></em> representación visual arquitectura Lambda implementada con Kafka para la ingestión de datos en la capa de velocidad utilizando Apache Flink mientras soporta streaming de datos e integra la capa histórica con Spark.
+</p>
+
+
 
 ### ***Kafka Streams***
 
@@ -79,9 +121,12 @@ Kafka Streams utiliza los conceptos de particiones y tareas como unidades lógic
 - Las claves de los registros de datos determinan la partición de datos tanto en Kafka como en Kafka Streams, es decir, cómo se enrutan los datos a particiones específicas dentro de los topics.
 
 <p align="center">
-    <img src="https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/e7e03b7f-1a0b-4a52-affe-2273d0ea19e9" alt="Kafka Streams"/>
+    <img src="https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/e7e03b7f-1a0b-4a52-affe-2273d0ea19e9" style="width:55%;" alt="Kafka Streams"/>
 </p>
-
+<p align="center">
+  <em><strong>Kafka Streams:</strong></em> representación visual tratamiento de flujos de datos con Kafka Streams.
+    
+</p>
 La topología del procesador de una aplicación se escala dividiéndola en múltiples tareas. Más específicamente, Kafka Streams crea un número fijo de tareas basado en las particiones del flujo de entrada para la aplicación, con cada tarea asignada a una lista de particiones de los flujos de entrada (es decir, topics de Kafka). La asignación de particiones a tareas nunca cambia, de modo que cada tarea es una unidad fija de paralelismo de la aplicación. Las tareas pueden entonces instanciar su propia topología de procesador basada en las particiones asignadas; también mantienen un búfer para cada una de sus particiones asignadas y procesan mensajes uno a la vez desde estos búferes de registros. Como resultado, las tareas de flujo pueden procesarse de manera independiente y en paralelo sin intervención manual.
 
 De manera ligeramente simplificada, el paralelismo máximo al que tu aplicación puede ejecutarse está limitado por el número máximo de tareas de flujo, que a su vez está determinado por el número máximo de particiones de los topics de entrada de los que la aplicación está leyendo. 
