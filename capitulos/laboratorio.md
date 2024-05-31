@@ -64,7 +64,7 @@ La terminal se va a quedar ocupada por el contenedor de la UI.
 
 Abrimos una nueva terminal y nos volvemos a dirigir a la carpeta de scripts para realizar la siguiente practica.
 
-Practica 3: Interaccion con kafka a través de un productor con Python
+### ***Practica 3: Interaccion con kafka a través de un productor con Python***
 
 Para hacer esta práctica, debemos antes consultar el archivo **kafka-producers.py**, el cual está en la carpeta: 
 ```````bash
