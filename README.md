@@ -8,6 +8,8 @@
 4. [Virtualización y Contenedores](./capitulos/Contenedores.md)
 5. [Kafka](./capitulos/Kafka.md)
 
-Cada capítulo aborda un aspecto clave del curso y está diseñado para complementar la presentación visual. La parte práctica de la asignatura se desarrollará en:
+Cada capítulo aborda un aspecto clave del curso y está diseñado para complementar la presentación visual. 
 
-[Laboratorio](./capitulos/laboratorio.md)
+La parte práctica de la asignatura se desarrollará paralelamente a la clase teórica siguiendo el manual:
+
+- [Laboratorio](./capitulos/laboratorio.md)
