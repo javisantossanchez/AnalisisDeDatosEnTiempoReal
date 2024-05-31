@@ -49,13 +49,13 @@ Un broker en Kafka es un servidor que almacena datos y sirve a los clientes. Es 
 
 #### Funcionamiento
 
-1. **Recepción de datos:** Los productores envían mensajes a un broker, que los almacena en la partición correspondiente del tópico. Cada mensaje se asigna a una partición específica basada en una clave de partición o mediante un algoritmo de round-robin.
+1. **Recepción de datos:** Los productores envían mensajes a un broker, que los almacena en la partición correspondiente del topic. Cada mensaje se asigna a una partición específica basada en una clave de partición o mediante un algoritmo de round-robin.
 2. **Almacenamiento:** Los brokers persisten los mensajes en disco y replican los datos en otros brokers para asegurar la durabilidad y tolerancia a fallos. Cada mensaje se guarda con un offset único que lo identifica dentro de su partición.
-3. **Servir a los consumidores:** Los consumidores leen los mensajes de las particiones de los tópicos desde los brokers. Kafka garantiza que los consumidores puedan leer los mensajes de manera eficiente y en orden, permitiendo a los consumidores mantener su posición (offset) en el flujo de datos.
+3. **Servir a los consumidores:** Los consumidores leen los mensajes de las particiones de los topics desde los brokers. Kafka garantiza que los consumidores puedan leer los mensajes de manera eficiente y en orden, permitiendo a los consumidores mantener su posición (offset) en el flujo de datos.
 
 #### Acoplamiento en la arquitectura Kafka
 
-- **Cluster:** Un clúster de Kafka consiste en múltiples brokers trabajando juntos. Cada tópico se divide en varias particiones distribuidas entre los brokers, permitiendo la escalabilidad horizontal.
+- **Cluster:** Un clúster de Kafka consiste en múltiples brokers trabajando juntos. Cada topic se divide en varias particiones distribuidas entre los brokers, permitiendo la escalabilidad horizontal.
 - **Particiones:** Las particiones permiten la paralelización del procesamiento de datos. Cada partición es una secuencia ordenada de mensajes que los consumidores pueden leer de manera independiente. Esto permite que múltiples consumidores puedan leer de diferentes particiones en paralelo, aumentando la eficiencia y la capacidad de procesamiento.
 - **Replicación:** Para garantizar la durabilidad y alta disponibilidad, los datos de cada partición se replican en múltiples brokers. Cada partición tiene una réplica líder y varias réplicas seguidoras. Las réplicas seguidoras replican los datos del líder y pueden tomar el control en caso de fallo del líder.
 - **Liderazgo de particiones:** Cada partición tiene un líder broker que maneja todas las lecturas y escrituras para esa partición, mientras que los seguidores replican los datos del líder. Este liderazgo se gestiona mediante el protocolo de consenso de Kafka, asegurando que siempre haya un líder disponible para cada partición.
@@ -136,6 +136,32 @@ Por ejemplo, si tu topic de entrada tiene 5 particiones, entonces puedes ejecuta
 Es importante entender que Kafka Streams no es un gestor de recursos, sino una biblioteca que "se ejecuta" en cualquier lugar donde se ejecute su aplicación de procesamiento de flujos. Múltiples instancias de la aplicación se ejecutan ya sea en la misma máquina o distribuidas en múltiples máquinas y las tareas pueden distribuirse automáticamente por la biblioteca a esas instancias de la aplicación en ejecución. La asignación de particiones a tareas nunca cambia; si una instancia de la aplicación falla, todas sus tareas asignadas se reiniciarán automáticamente en otras instancias y continuarán consumiendo de las mismas particiones de flujo.
 
 
-### Kafka Connect
+### ***Kafka Connect***
 
+Kafka Connect es un componente de Apache Kafka que facilita la integración de Kafka con otros sistemas mediante conectores reutilizables. Permite la ingesta y exportación de datos entre Kafka y diversas fuentes y sumideros de datos sin necesidad de escribir código personalizado.
+
+#### Funcionamiento
+
+1. **Conectores:** Kafka Connect utiliza conectores para transferir datos hacia y desde Kafka. Existen dos tipos principales de conectores:
+   - **Source Connectors:** Estos conectores leen datos de una fuente de datos externa (como una base de datos, un archivo o una API) y los escriben en un topic de Kafka.
+   - **Sink Connectors:** Estos conectores leen datos de un topic de Kafka y los escriben en un sistema de destino (como una base de datos, un sistema de almacenamiento en la nube o una aplicación).
+2. **Workers:** Los conectores se ejecutan dentro de procesos llamados workers, que pueden desplegarse en modo autónomo o en modo distribuido. En modo distribuido, múltiples workers pueden formar un clúster de Connect para mayor escalabilidad y tolerancia a fallos.
+3. **Configuración:** Los conectores y los workers se configuran mediante archivos JSON o propiedades, donde se especifican detalles como la ubicación de la fuente/destino, el formato de los datos y las opciones de transformación.
+4. **Transformaciones:** Kafka Connect permite aplicar transformaciones a los datos en tránsito mediante Single Message Transforms (SMTs). Estas transformaciones pueden modificar, filtrar o enriquecer los datos antes de que se escriban en el destino.
+
+#### Acoplamiento en la arquitectura Kafka
+
+- **Ingesta de Datos:** Kafka Connect facilita la ingesta de datos de diversas fuentes externas en Kafka. Esto es útil para consolidar datos de diferentes sistemas en un único clúster de Kafka, donde pueden ser procesados, analizados o re-distribuidos.
+- **Exportación de Datos:** Permite la exportación de datos desde Kafka a otros sistemas, facilitando la integración con herramientas de análisis, almacenamiento en la nube, sistemas de bases de datos y más.
+- **Escalabilidad:** Kafka Connect puede escalar horizontalmente agregando más workers al clúster. Cada worker puede manejar múltiples tareas de conectores, distribuyendo la carga de trabajo y asegurando un alto rendimiento y disponibilidad.
+- **Tolerancia a Fallos:** En un clúster distribuido, los workers de Kafka Connect gestionan automáticamente la redistribución de tareas en caso de fallo de un worker, garantizando que los datos sigan fluyendo sin interrupciones.
+- **Monitorización y Gestión:** Kafka Connect expone métricas detalladas sobre el estado y el rendimiento de los conectores y workers, permitiendo una gestión proactiva y resolución de problemas. Además, la configuración y el estado de los conectores pueden gestionarse mediante REST API, facilitando la automatización y la integración con sistemas de orquestación.
+
+#### Detalles adicionales
+
+- **Integración con Schema Registry:** Kafka Connect puede integrarse con Confluent Schema Registry para gestionar esquemas de datos, garantizando la compatibilidad y la evolución de los datos entre productores y consumidores.
+- **Conectores Prediseñados:** Existe una amplia variedad de conectores prediseñados para Kafka Connect, cubriendo una multitud de sistemas de bases de datos, almacenes de datos, sistemas de archivos y servicios en la nube. Estos conectores facilitan la implementación rápida y reducen la necesidad de desarrollo personalizado.
+- **Plugins y Extensibilidad:** Kafka Connect es extensible mediante plugins, permitiendo a los desarrolladores crear conectores personalizados para sistemas específicos o implementar transformaciones personalizadas según las necesidades de negocio.
+
+Kafka Connect es una herramienta poderosa y flexible para la integración de datos, simplificando la transferencia de datos entre Kafka y otros sistemas. Su capacidad de escalar y su enfoque en la facilidad de uso hacen que sea una elección ideal para arquitecturas de datos modernas que requieren ingesta y exportación de datos eficientes y fiables.
 
