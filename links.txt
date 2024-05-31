@@ -18,25 +18,6 @@ https://engineering.linkedin.com/distributed-systems/log-what-every-software-eng
 GUAU
 
 
-"
-¿Qué es NodePort?
-NodePort es una de las tres formas principales en que los servicios de Kubernetes pueden ser expuestos:
-
-ClusterIP (por defecto): Hace que el servicio sea accesible solo dentro del clúster de Kubernetes.
-NodePort: Exponer el servicio en un puerto estático de cada nodo del clúster, permitiendo el acceso externo.
-LoadBalancer: Solicita a un proveedor de servicios de nube que cree un balanceador de carga, permitiendo el acceso externo.
-Cómo Funciona NodePort
-Cuando configuras un servicio como NodePort, Kubernetes abre un puerto específico (en el rango 30000-32767) en todos los nodos del clúster y redirige el tráfico que llega a ese puerto al servicio. Aquí están los detalles de por qué esto funciona para acceder al servicio desde fuera del clúster:
-
-Acceso Externo: NodePort permite el acceso a servicios internos de Kubernetes desde fuera del clúster usando la IP del nodo y el puerto especificado. Esto es útil cuando deseas acceder a tus servicios desde tu máquina local u otros dispositivos en la red.
-
-Puerto Fijo: NodePort expone un puerto específico y fijo en cada nodo del clúster, lo que facilita saber a qué puerto dirigir el tráfico para acceder a un servicio determinado.
-
-Compatibilidad con Firewalls y Seguridad: Al exponer un puerto específico, puedes configurar reglas de firewall y políticas de seguridad para controlar el acceso a tus servicios.
-
-Diagrama de Flujo
-Aquí tienes un diagrama simplificado del flujo de tráfico con NodePort:
-
 sql
 Copiar código
 Client (Windows)
@@ -45,11 +26,3 @@ Client (Windows)
 [External IP of Node]:32080  -->  [NodePort: 32080 on Node]
                                   -->  [Service: kafka-ui on ClusterIP]
                                     -->  [Pod: kafka-ui on port 8080]
-Resumen
-ClusterIP: Solo accesible dentro del clúster.
-NodePort: Abre un puerto específico en cada nodo, permitiendo el acceso externo.
-Ventajas de NodePort:
-Permite acceso externo desde cualquier dispositivo en la red.
-Usa un puerto fijo que facilita la configuración de acceso.
-Compatible con configuraciones de firewall y políticas de seguridad.
-"
