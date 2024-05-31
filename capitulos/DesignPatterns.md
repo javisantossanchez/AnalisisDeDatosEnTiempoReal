@@ -66,6 +66,9 @@ Ambos patrones de diseño, Colas de Mensajes y Publicación-Subscripción, compa
 <p align="center">
 <img src="https://github.com/javisantossanchez/BigDataEnTiempoReal/assets/47392657/05393391-066d-4c70-8949-7d65672e3c04" style="align:center;" \>
 </p>
+<p align="center">
+  <em><strong>Cola de Mensajes y Publish/Subscriber:</strong></em> Diferencias entre ambos patrones de diseño.
+</p>
 
 ### ***Funcionamiento de la Arquitectura Basada en Eventos***
 
@@ -101,4 +104,11 @@ Aprovechando la mensajería asincrónica y los flujos de trabajo basados en even
 
 Estos servicios, típicamente desplegados en contenedores o máquinas virtuales ligeras, se comunican entre sí utilizando protocolos ligeros como HTTP, colas de mensajes o flujos de eventos. La combinación de EDA con microservicios permite la comunicación basada en eventos entre servicios, habilitando la propagación de eventos, el almacenamiento de estos y flujos de trabajo coreografiados u orquestados que responden a los determinados contextos. Este enfoque mejora la modularidad del sistema, la tolerancia a fallos y la escalabilidad, facilitando el desarrollo de sistemas complejos y distribuidos que pueden adaptarse y evolucionar de manera eficiente en entornos dinámicos.
 
-![edaarch](https://github.com/javisantossanchez/BigDataEnTiempoReal/assets/47392657/a9d9dd0b-c442-4dc6-845c-ecad7ccfb5d0)
+
+<p align="center">
+  <img src="https://github.com/javisantossanchez/BigDataEnTiempoReal/assets/47392657/a9d9dd0b-c442-4dc6-845c-ecad7ccfb5d0" style="width:75%" \>
+</p>
+<p align="center">
+  <em><strong>Event Driven Architecture:</strong></em> representación visual del patrón EDA.
+</p>
+
