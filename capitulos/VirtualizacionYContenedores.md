@@ -16,12 +16,15 @@ En la siguiente imagen se puede apreciar la diferencia existente entre los hiper
 - **Tipo 2:** se instala un Sistema Operativo tradicional (normalmente sistemas Linux RHEL, aunque hay de todo) y en él se instala el software capaz de crear la capa de hipervisor que permite la virtualización de sistemas.
 
 <p align="center">
-  <img src="https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/5f795e11-0a98-4f83-b6e5-5d3b84b81635)" style="width:75%" \>
+  <img src="https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/5f795e11-0a98-4f83-b6e5-5d3b84b81635" style="width:75%" \>
 </p>
 <p align="center">
   <em><strong>Hipervisores:</strong></em> Diferencias entre Hipervisores tipo 1 y tipo 2.
 </p>
+
+
 ### ***Docker***
+
 Como una evolución de este concepto encontramos **Docker**: una plataforma de código abierto cuyo objetivo es el desarrollo y producción de aplicaciones de manera rápida e independiente de la infraestructura subyacente. Esta última cualidad se obtiene mediante el uso de máquinas virtuales ligeras llamadas _contenedores_.
 
 Los contenedores poseen las siguientes características clave:
