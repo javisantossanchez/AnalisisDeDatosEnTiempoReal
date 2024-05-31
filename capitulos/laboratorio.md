@@ -209,3 +209,95 @@ Ahora podemos comprobar en el frontal web como se van procesando los datos de la
 En la carpeta data está el archivo amazon_books.csv con el que, si sobra tiempo, construiremos lo mismo que previamente hemos hecho con movielens.
 
 
+
+
+
+## ***Docker y MicroK8s Cheatsheet***
+
+### Comandos Básicos de Docker
+
+#### Listar Contenedores
+- **Listar contenedores en ejecución:**
+  ```bash
+  docker ps
+  ```
+
+- **Listar todos los contenedores (en ejecución y detenidos):**
+  ```bash
+  docker ps -a
+  ```
+
+#### Inspeccionar Contenedores
+- **Obtener información detallada de un contenedor:**
+  ```bash
+  docker inspect <ID_CONTAINEDOR>
+  ```
+
+#### Logs de Contenedores
+- **Ver logs de un contenedor:**
+  ```bash
+  docker logs <ID_CONTAINEDOR>
+  ```
+
+#### Ejecutar comandos en Contenedores
+- **Ejecutar un comando en un contenedor en ejecución:**
+  ```bash
+  docker exec -it <ID_CONTAINEDOR> <COMANDO>
+  ```
+
+#### Estado del Sistema Docker
+- **Mostrar el estado del sistema Docker:**
+  ```bash
+  docker info
+  ```
+
+### ***Comandos Básicos de MicroK8s***
+
+#### Listar Recursos
+- **Listar todos los pods:**
+  ```bash
+  microk8s kubectl get pods
+  ```
+
+- **Listar todos los servicios:**
+  ```bash
+  microk8s kubectl get services
+  ```
+
+- **Listar todos los namespaces:**
+  ```bash
+  microk8s kubectl get namespaces
+  ```
+
+### Inspeccionar Recursos
+- **Obtener información detallada de un pod:**
+  ```bash
+  microk8s kubectl describe pod <NOMBRE_POD>
+  ```
+
+#### Logs de Pods
+- **Ver logs de un pod:**
+  ```bash
+  microk8s kubectl logs <NOMBRE_POD>
+  ```
+
+#### Ejecutar comandos en Pods
+- **Ejecutar un comando en un pod en ejecución:**
+  ```bash
+  microk8s kubectl exec -it <NOMBRE_POD> -- <COMANDO>
+  ```
+
+#### Estado del Sistema MicroK8s
+- **Mostrar el estado del clúster MicroK8s:**
+  ```bash
+  microk8s status
+  ```
+
+#### Notas Adicionales
+
+- Reemplaza `<ID_CONTAINEDOR>` con el ID o nombre del contenedor correspondiente.
+- Reemplaza `<NOMBRE_POD>` con el nombre del pod correspondiente.
+- Reemplaza `<COMANDO>` con el comando que deseas ejecutar dentro del contenedor o pod.
+
+
+
