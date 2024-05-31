@@ -28,9 +28,14 @@ Por otro lado, los datos en streaming se refieren a los datos que se generan con
 - **Procesamiento de flujo:** Los datos en streaming se procesan sobre la marcha, a menudo tan pronto como llegan.
 - **Conocimientos en tiempo real:** Dado que el procesamiento ocurre en tiempo real, los conocimientos derivados de los datos en streaming son inmediatos, lo que permite acciones rápidas.
 - **Utilizados para acciones inmediatas:** Los datos en streaming a menudo se utilizan en escenarios que requieren acciones inmediatas, como el monitoreo de sistemas, el análisis en tiempo real y las recomendaciones instantáneas.
-  
-![streamprocessor](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/85ad20c3-ef61-4e2b-b668-c859a3ce13b9)
 
+
+<p align="center">
+  <img src="https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/85ad20c3-ef61-4e2b-b668-c859a3ce13b9" style="width:75%" \>
+</p>
+<p align="center">
+  <em><strong>Procesador de flujo:</strong></em> Representación visual procesamiento de flujos de datos.
+</p>
 
 En la arquitectura de datos moderna, tanto los datos históricos como los datos en streaming tienen su lugar. Los datos históricos son valiosos para comprender las tendencias a largo plazo y hacer pronósticos, mientras que los datos en streaming son cruciales para la toma de decisiones en tiempo real y la capacidad de respuesta inmediata. Una estrategia de datos integral a menudo implica aprovechar las fortalezas de ambos tipos de datos.
 
@@ -44,7 +49,13 @@ Este método ha sido la piedra angular de las arquitecturas tradicionales de pro
 
 El procesamiento por lotes es útil para analizar tendencias a lo largo del tiempo, producir informes agregados y ejecutar consultas complejas que no son sensibles al tiempo. Por ejemplo, una empresa puede ejecutar un proceso por lotes durante la noche para analizar los datos de ventas del día anterior y generar un informe para revisar a la mañana siguiente.
 
-![batch-processing](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/fdd168af-b4bb-4cf5-82d2-c14db0cd9edc)
+
+<p align="center">
+  <img src="https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/fdd168af-b4bb-4cf5-82d2-c14db0cd9edc" style="width:75%" \>
+</p>
+<p align="center">
+  <em><strong>Datos históricos:</strong></em> Representación visual procesamiento por lotes (batch).
+</p>
 
 **Limitaciones de un sistema de procesamiento por lotes en la era de los datos en streaming**
 
@@ -67,7 +78,12 @@ La arquitectura Lambda es una arquitectura de procesamiento de datos diseñada p
 
 La capa de lotes maneja las grandes cantidades de datos históricos. Realiza cálculos extensos en todo el conjunto de datos para proporcionar vistas precisas de los datos. Por otro lado, la capa de velocidad se ocupa de los datos en tiempo real, ofreciendo conocimientos rápidos, aunque ligeramente menos precisos.
 
-![RealtimeStreamProcessingLambda](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/7a35cff5-c75e-4a44-ba73-97eb3e571901)
+<p align="center">
+  <img src="https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/7a35cff5-c75e-4a44-ba73-97eb3e571901" style="width:75%" \>
+</p>
+<p align="center">
+  <em><strong>Arquitectura Lambda:</strong></em> Representación visual del tratamiento de datos históricos y en streaming en arquitectura Lambda.
+</p>
 
 Este enfoque permite a la arquitectura Lambda manejar tanto el procesamiento por lotes como el análisis en tiempo real de manera efectiva, asegurando que las organizaciones obtengan los conocimientos que necesitan de manera oportuna.
 
@@ -91,7 +107,13 @@ En la Arquitectura Kappa, la capa de velocidad de la arquitectura Lambda se conv
 
 En lugar de dividir el procesamiento de datos en dos capas separadas (lotes y velocidad), Kappa se centra en procesar los datos en tiempo real a medida que llegan. Los datos históricos en la arquitectura Kappa son simplemente datos más antiguos en el flujo y se manejan de la misma manera que los nuevos datos entrantes.
 
-![kappaarchitecture](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/284d4ea6-b408-46fb-981e-665c6310a1a7)
+
+<p align="center">
+  <img src="https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/284d4ea6-b408-46fb-981e-665c6310a1a7" style="width:75%" \>
+</p>
+<p align="center">
+  <em><strong>Arquitectura Kappa:</strong></em> Representación visual del tratamiento de datos históricos y en streaming en arquitectura Kappa.
+</p>
 
 La capa de flujo ingiere los datos entrantes, los procesa y luego los envía para su almacenamiento o análisis adicional. La agilidad de esta capa ofrece una latencia menor, proporcionando conocimientos más rápidos e inmediatos a partir de los flujos de datos.
 
@@ -99,7 +121,12 @@ La capa de flujo ingiere los datos entrantes, los procesa y luego los envía par
 
 La esencia de la Arquitectura Kappa reside en su enfoque del procesamiento de flujos. El procesamiento de flujos en Kappa implica consultar continuamente los datos a medida que llegan. Esto permite análisis en tiempo real, detección de patrones y toma de decisiones, todos cruciales para aplicaciones que necesitan reacciones instantáneas, como la detección de fraudes o el monitoreo de sistemas.
 
-![stream-processing-app](https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/697f6004-58c4-4157-b6c5-7295b843376d)
+<p align="center">
+  <img src="https://github.com/javisantossanchez/GrandesVolumenesDeDatos/assets/47392657/697f6004-58c4-4157-b6c5-7295b843376d" style="width:75%" \>
+</p>
+<p align="center">
+  <em><strong>Ejemplo Kappa:</strong></em> Ejemplo Arquitectura Kappa.
+</p>
 
 En la Arquitectura Kappa, la capa de procesamiento de flujos constituye dos componentes clave: la parte de ingesta de datos y la parte de procesamiento de datos.
 
@@ -109,4 +136,12 @@ En la Arquitectura Kappa, la capa de procesamiento de flujos constituye dos comp
 Los componentes del procesamiento de flujos en la arquitectura Kappa están construidos con un enfoque en la tolerancia a fallos y la escalabilidad, con cada unidad llevando a cabo un papel específico en la cadena de procesamiento de datos en tiempo real.
 
 Además, el enfoque de la Arquitectura Kappa en el procesamiento de flujos simplifica significativamente la cadena de procesamiento de datos. Al eliminar la necesidad de una capa separada de procesamiento por lotes, Kappa reduce la complejidad del sistema, resultando en una arquitectura más manejable y escalable.
+
+
+<p align="center">
+  <img src="https://github.com/javisantossanchez/AnalisisDeDatosEnTiempoReal/assets/47392657/bc7be4a3-e996-4043-8186-7e8224bd2b69" style="width:75%" \>
+</p>
+<p align="center">
+  <em><strong>Stream Datos:</strong></em> Representación visual del tratamiento de un streaming de datos.
+</p>
 
