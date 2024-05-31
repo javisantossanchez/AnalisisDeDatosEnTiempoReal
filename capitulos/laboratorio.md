@@ -1,5 +1,9 @@
 ## ***Laboratorio Análisis de Datos en Tiempo Real***
 
+
+### Para MAC:
+https://ubuntu.com/tutorials/install-microk8s-on-mac-os#1-overview
+
 ### ***Practica 0: Instalar dependencias.*** ###
 
 Antes de comenzar el laboratorio, es imprescindible tener instalado el software que se va a emplear.
