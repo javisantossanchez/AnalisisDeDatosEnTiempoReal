@@ -66,3 +66,10 @@ if ! command -v microk8s &> /dev/null; then
 else
     echo "MicroK8s ya está instalado."
 fi
+
+# Instalación de kafka-python y confluent-kafka
+pip install kafka-python
+pip install confluent-kafka
+
+# Instalación de argparse (aunque generalmente argparse está incluido en la biblioteca estándar de Python y no necesita instalación)
+pip install argparse
