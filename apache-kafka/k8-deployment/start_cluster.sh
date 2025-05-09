@@ -20,10 +20,10 @@ microk8s kubectl apply -f broker-4-deployment.yaml
 
 # Wait for Kafka brokers to be running
 echo "Waiting for Kafka brokers to be running..."
-microk8s kubectl wait --for=condition=available --timeout=600s deployment/broker-deployment	
-microk8s kubectl wait --for=condition=available --timeout=600s deployment/broker-2-deployment
-microk8s kubectl wait --for=condition=available --timeout=600s deployment/broker-2-deployment
-microk8s kubectl wait --for=condition=available --timeout=600s deployment/broker-2-deployment
+microk8s kubectl wait --for=condition=available --timeout=600s deployment/kafka-deployment
+microk8s kubectl wait --for=condition=available --timeout=600s deployment/kafka-deployment-2	
+microk8s kubectl wait --for=condition=available --timeout=600s deployment/kafka-deployment-3	
+microk8s kubectl wait --for=condition=available --timeout=600s deployment/kafka-deployment-4	
 
 # Apply Kafka UI manifests
 microk8s kubectl apply -f kafka-ui-deployment.yaml
