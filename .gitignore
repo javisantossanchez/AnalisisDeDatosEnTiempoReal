@@ -3,3 +3,4 @@
 *.tgz*
 apache-kafka/scripts/java/kafka-producer/
 images/
+*venv*
